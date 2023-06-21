@@ -1,0 +1,25 @@
+.hd-green {
+    background-color: rgb(143, 218, 0);
+}
+
+.gradient {
+    background-image: url('../images/backgroud.png') !important;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.border-indigo-400 {
+    --tw-border-opacity: 1;
+    border-color: #202a37;
+}
+
+.hover\:border-gray-300:hover {
+    --tw-border-opacity: 1;
+    border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.focus\:border-gray-300:focus {
+    --tw-border-opacity: 1;
+    border-color: rgb(143 218 0 / var(--tw-border-opacity));
+}
