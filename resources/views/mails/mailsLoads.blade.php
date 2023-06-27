@@ -223,56 +223,51 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="jumbotron">
-                    <p>Hola!</p>
-                    <p>Estimado/a <strong>{{ $nombre }}</strong>,</p>
-                </div>
+                <p>
+                    Buen día,
+                </p>
+                <p>
+                    Estimado/a <strong>{{ $nombre }}</strong>,
+                </p>
                 <ul>
                     <p>
-                        Esperamos que te encuentres bien. En nombre de Desarrollo Profesional y Egresados de la CUN,
-                        queremos agradecerte
-                        por tu participación en nuestra reciente actividad <strong>{{ $curso }}</strong>
-                        realizada el {{ $day_r }} de
-                        {{ $month_r }} del {{ $year_r }},. Nos complace informarte que tu certificado de
-                        asistencia ya está disponible.
+                        Desde la Coordinación Nacional de Proyección Social de la CUN,
+                        queremos agradecerte por tu participación en <strong>{{ $tipo_curso }}</strong>
+                        de <strong>{{ $curso }}</strong>, realizada del {{ $day_i }} de
+                        {{ $month_i }} del {{ $year_i }}
+                        al {{ $day_f }} de {{ $month_f }} del {{ $year_f }}.
                     </p>
                     <p>
-                        Valoramos tu compromiso y dedicación en tu desarrollo profesional, y estamos aquí para brindarte
-                        apoyo en cada etapa de tu trayectoria.
-                        Reconocemos tus esfuerzos y queremos ayudarte a destacar tus logros.
+                        Nos complace informarte que tu certificación académica ya está disponible.
+                        Este certificado ha sido generado de acuerdo con las asistencias reportadas y con
+                        los datos proporcionados de tu parte en el formulario correspondiente.
+                        Felicitaciones por este logro en tu formación académica.
                     </p>
                     <p>
-                        Para acceder a tu certificado de asistencia, simplemente haz clic en el siguiente enlace:
+                        Para acceder a tu certificado de asistencia, simplemente haz clic en el siguiente
+                        enlace:
                         <a href="{{ env('APP_URL') }}consult">
-                            Dale Clik Aqui
-                        </a>
-                        Te recomendamos descargar y guardar una copia electrónica de tu certificado para futuras
-                        referencias.
+                            <strong>Dale Clik Aqui</strong>
+                        </a>.
+                        Te recomendamos descargar y guardar una copia electrónica
+                        de tu certificado para futuras referencias.
                     </p>
                     <p>
-                        Si tienes alguna pregunta o necesitas asistencia adicional, no dudes en contactarnos. Estamos
-                        aquí para ayudarte en tu camino hacia
-                        el éxito profesional.
+                        Si tienes alguna pregunta, no dudes en contactarnos.
                     </p>
-                    <!-- Otros campos -->
-
-                </ul>
-                <!-- <p>Dirigite a este enlace</p> -->
-                <ul>
-                    <li>
-                        <p>
-                            ¡Gracias por formar parte de la comunidad de Desarrollo Profesional y Egresados de la CUN!
-                        </p>
-                        <p>
-                            Cordialmente,
-                            este es el cuerpo del correo que debe llegarle al estudiante
-                        </p>
-                    </li>
+                    <p>
+                        ¡Gracias por formar parte de la comunidad de Proyección Social de la CUN!
+                    </p>
+                    <p>
+                        Cordialmente,
+                    </p>
+                    <p>
+                        Coordinación Nacional de Proyección Social CUN
+                    </p>
                 </ul>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
