@@ -71,9 +71,9 @@
                         <thead>
                           <tr>
                             <th></th>
-                            <th>Consecutivo</th>
                             <th>Nombre estudiante</th>
-                            <th>Número documento</th>
+                            <th>Consecutivo</th>
+                            <th>Documento</th>
                             <th>Nombre producto</th>
                             <th>Correo electronico</th>
                           </tr>

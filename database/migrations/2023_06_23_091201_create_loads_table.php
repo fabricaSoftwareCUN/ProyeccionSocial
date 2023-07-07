@@ -16,7 +16,6 @@ class CreateLoadsTable extends Migration
     Schema::create('loads', function (Blueprint $table) {
       $table->id();
       $table->string('Consecutivo')->unique();
-      $table->string('Subitulo');
       $table->string('Nombre_producto');
       $table->string('Nombre_completo_participante');
       $table->string('Tipo_documento');
@@ -26,6 +25,8 @@ class CreateLoadsTable extends Migration
       $table->date('Fecha_final');
       $table->string('Duración');
       $table->string('Ciudad_expedición');
+      $table->string('Firma_aliado')->nullable();
+      $table->string('Logo_aliado')->nullable();
       $table->string('Sexo');
       $table->string('Telefono');
       $table->string('Email');

@@ -25,6 +25,7 @@ class LoadController extends Controller
     $loads = Load::where('Nombre_producto', 'LIKE', '%' . $texto . '%')
       ->orWhere('Consecutivo', 'LIKE', '%' . $texto . '%')
       ->orWhere('Numero_documento', 'LIKE', '%' . $texto . '%')
+      ->orWhere('Nombre_completo_participante', 'LIKE', '%' . $texto . '%')
       ->orderByDesc('id')
       ->paginate(15);
     return view('loads.index', compact('loadscount', 'texto', 'loads'));

@@ -2,71 +2,99 @@
   #1f2936
   #8fda00
   #FFCD00
+  #E5E5E5
 */
 
 
 body, html {
-  background-image: url('https://cursoscertificados.cunapp.dev/images/certificados/fondo-certificado.jpg') !important;
-  /* background-image: url('http://localhost/CursosCertificados/public/images/certificados/fondo-certificado.jpg') !important; */
+  /* background-image: url('https://proyeccionsocial.cunapp.dev/images/certificados/fondo-certificado.jpg') !important; */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  background-image: url('http://localhost/ProyeccionSocial/public/images/certificados/fondo-certificado.png') !important;
   background-size: 100% auto !important;
-  margin: 0cm 0cm 0cm 0cm;
+  margin: -0.1cm 0cm 0cm 0cm;
   background-repeat: no-repeat !important;
 }
 
-/* header {
-  position: fixed;
-  top: 0cm;
-  left: 0cm;
-  right: 0cm;
-  height: 2cm;
-  background-color: rgba(31, 41, 54, 1);
-  color: #000;
-  text-align: center;
-  line-height: 30px;
-  flex-wrap: wrap;
-} */
-
-/* .t1 {
-  font-size: 24px;
-  font-family: 'italic';
-
-} */
-
-/* .t2 {
-  font-size: 20px;
+.nombre {
+  /* font-family: 'Montserrat', sans-serif; */
+  font-style: italic;
+  font-size: 36px;
+  text-decoration: underline;
 }
 
-.t3 {
+.titulo {
+  font-style: bold;
+  font-size: 23px;
+}
+
+.subtitulo {
+  font-style: bold;
   font-size: 18px;
-} */
+}
 
-/* .green-right {
-  color: #8fda00;
-  background-color: #8fda00 !important;
-  -moz-transform: scale(2.5) rotate(42deg) translate(50px, -50px) skew(-21deg, -20deg);
-  -webkit-transform: scale(2.5) rotate(42deg) translate(50px, -50px) skew(-21deg, -20deg);
-  -o-transform: scale(2.5) rotate(42deg) translate(50px, -50px) skew(-21deg, -20deg);
-  -ms-transform: scale(2.5) rotate(42deg) translate(50px, -50px) skew(-21deg, -20deg);
-  transform: scale(2.5) rotate(42deg) translate(50px, -80px) skew(-21deg, -20deg);
-} */
+header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: flex-end;
+}
 
-/* .yellow-right {
-  z-index: -1 !important;
-  color: #FFCD00;
-  background-color: #FFCD00 !important;
-  -moz-transform: scale(2.5) rotate(42deg) translate(50px, -50px) skew(-21deg, -20deg);
-  -webkit-transform: scale(2.5) rotate(42deg) translate(50px, -50px) skew(-21deg, -20deg);
-  -o-transform: scale(2.5) rotate(42deg) translate(50px, -50px) skew(-21deg, -20deg);
-  -ms-transform: scale(2.5) rotate(42deg) translate(50px, -50px) skew(-21deg, -20deg);
-  transform: scale(2.5) rotate(42deg) translate(50px, -70px) skew(-21deg, -20deg);
-} */
+.div-img-left {
+  width: 33.5%;
+  height: 80px;
+  float: left;
+}
 
-.div-img {
-  padding: 1%;
-  z-index: 2 !important;
+.div-img-center {
+  width: 33%;
+  height: 80px;
+  margin-left: 33% !important;
+  float: center;
+}
+
+.div-img-right {
+  width: 33.5%;
+  height: 80px;
+  float: right;
+}
+
+.firmas {
+  width: 600px;
+  height: 80px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.firma00 {
+  width: 50%;
+  height: 80px;
+  margin-left: 25%;
+  margin-right: 25%;
+  float: center;
+}
+
+.firma01 {
+  width: 50%;
+  height: 80px;
+  float: left;
+}
+
+.firma02 {
+  width: 50%;
+  height: 80px;
+  float: right;
+}
+
+.img-firma {
+  width: 90%;
+  height: 80%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-bottom: 2px solid #000 !important;
 }
 
 main {
   z-index: 3 !important;
-  margin-top: 0.5cm !important;
+  margin-top: 0.7cm !important;
 }

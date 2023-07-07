@@ -21,6 +21,8 @@ class Load extends Model
     'Fecha_final',
     'Duración',
     'Ciudad_expedición',
+    'Firma_aliado',
+    'Logo_aliado',
     'Sexo',
     'Telefono',
     'Email',

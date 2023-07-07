@@ -14,6 +14,13 @@ Para clonar el repositorio e instalarlo en produccion o pruebas se deben tener e
 - **[php artisan key:generate](#)**
 - [Generar enlace simbolico de storage para poder manipular imagenes de usuario logueado](#).
 - **[php artisan storage:link](#)**
+- [Crear carpeta para las fuentes que maneja la plataforma](#).
+- **[public/storage/fonts](#)**
+- [Cambiar ruta de acceso en archivo de certificados.css a produccion](#).
+- **[Quitar la regla cel css body, html {}](#)**
+- **[background-image: url('http://localhost/ProyeccionSocial/public/images/certificados/fondo-certificado.png') !important;](#)**
+- **[Poner la regla cel css body, html {}](#)**
+- **[https://proyeccionsocial.cunapp.dev/images/certificados/fondo-certificado.png](#)**
 - [Asignar credenciales de conexion a la DB, usuario y contraseña, en archivo .env ](#).
 - **[DB_DATABASE=Database name](#)**
 - **[DB_USERNAME=user database name](#)**

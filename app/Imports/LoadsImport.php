@@ -17,9 +17,7 @@ class LoadsImport implements ToModel, WithHeadingRow
    */
   public function model(array $row)
   {
-    return new Load([
-      'Consecutivo' => $row['consecutivo'],
-      'Subitulo' => $row['subtitulo'],
+    return new Load(['Consecutivo' => $row['consecutivo'],
       'Nombre_producto' => $row['nombre_producto'],
       'Nombre_completo_participante' => $row['nombre_completo_participante'],
       'Tipo_documento' => $row['tipo_documento'],
@@ -29,6 +27,8 @@ class LoadsImport implements ToModel, WithHeadingRow
       'Fecha_final' => $row['fecha_final'],
       'Duración' => $row['duracion'],
       'Ciudad_expedición' => $row['ciudad_expedicion'],
+      'Firma_aliado' => $row['firma_aliado'],
+      'Logo_aliado' => $row['logo_aliado'],
       'Sexo' => $row['sexo'],
       'Telefono' => $row['telefono'],
       'Email' => $row['email'],

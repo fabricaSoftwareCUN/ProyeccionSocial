@@ -25,23 +25,19 @@
                 <div
                     class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
                     <div class="max-w-6xl mx-auto sm:px-1 lg:px-1">
-                        <div class="flex justify-center titulo-welcome">
+                        {{-- <div class="flex justify-center titulo-welcome">
                             <h3>{{ env('APP_NAME', 'Certificados Proyección social') }}</h3>
-                        </div>
+                        </div> --}}
                         <div class="flex justify-center pt-1 sm:justify-start sm:pt-0">
-                            <img src="{{ asset('images/logo-welcome.png') }}" alt="logo-cun" width="400"
-                                class="sombra-inter-negro">
+                            <img src="{{ asset('images/Proyección Social - Fondo blanco.png') }}" alt="logo-cun" width="400" class="sombra-inter-negro">
                         </div>
                         <div class="d-flex justify-content-center">
                             @if (Route::has('login'))
                                 @auth
-                                    <a href="{{ url('/dashboard') }}"
-                                        class="mx-3 sombra btn btn-cun btn-sm">{{ __('Dashboard') }}</a>
+                                    <a href="{{ url('/dashboard') }}" class="mx-3 sombra btn btn-cun btn-sm">{{ __('Dashboard') }}</a>
                                 @else
-                                    <a href="{{ route('login') }}"
-                                        class="mx-3 sombra btn btn-cun btn-sm">{{ __('Log in') }}</a>
-                                    <a href="{{ route('register') }}"
-                                        class="mx-3 sombra btn btn-cun btn-sm">{{ __('Register') }}</a>
+                                    <a href="{{ route('login') }}" class="mx-3 sombra btn btn-cun btn-sm">{{ __('Log in') }}</a>
+                                    <a href="{{ route('register') }}" class="mx-3 sombra btn btn-cun btn-sm">{{ __('Register') }}</a>
                                 @endauth
                             @endif
                         </div>
