@@ -227,15 +227,12 @@
                     Buen día,
                 </p>
                 <p>
-                    Estimado/a <strong>{{ $nombre }}</strong>,
+                    Estimado/a <strong></strong>,
                 </p>
                 <ul>
                     <p>
                         Desde la Coordinación Nacional de Proyección Social de la CUN,
-                        queremos agradecerte por tu participación en <strong>{{ $tipo_curso }}</strong>
-                        de <strong>{{ $curso }}</strong>, realizada del {{ $day_i }} de
-                        {{ $month_i }} del {{ $year_i }}
-                        al {{ $day_f }} de {{ $month_f }} del {{ $year_f }}.
+                        queremos agradecerte por tu participación.
                     </p>
                     <p>
                         Nos complace informarte que tu certificación académica ya está disponible.

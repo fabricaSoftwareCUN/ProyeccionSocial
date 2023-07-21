@@ -13,25 +13,29 @@ class LoadMailable extends Mailable
 {
   use Queueable, SerializesModels;
 
-  public $nombre, $curso, $day_i, $month_i, $year_i, $day_f, $month_f, $year_f, $tipo_curso;
+  // public $nombre, $curso, $day_i, $month_i, $year_i, $day_f, $month_f, $year_f, $tipo_curso;
 
   /**
    * Create a new message instance.
    *
    * @return void
    */
-  public function __construct($nombre, $curso, $tipo_curso, $day_i, $month_i, $year_i, $day_f, $month_f, $year_f)
+  public function __construct()
   {
-    $this->nombre = $nombre;
-    $this->curso = $curso;
-    $this->day_i = $day_i;
-    $this->day_f = $day_f;
-    $this->month_i = $month_i;
-    $this->month_f = $month_f;
-    $this->year_i = $year_i;
-    $this->year_f = $year_f;
-    $this->tipo_curso = $tipo_curso;
+
   }
+  // public function __construct($nombre, $curso, $tipo_curso, $day_i, $month_i, $year_i, $day_f, $month_f, $year_f)
+  // {
+  //   $this->nombre = $nombre;
+  //   $this->curso = $curso;
+  //   $this->day_i = $day_i;
+  //   $this->day_f = $day_f;
+  //   $this->month_i = $month_i;
+  //   $this->month_f = $month_f;
+  //   $this->year_i = $year_i;
+  //   $this->year_f = $year_f;
+  //   $this->tipo_curso = $tipo_curso;
+  // }
 
   /**
    * Build the message.
@@ -40,7 +44,7 @@ class LoadMailable extends Mailable
    */
   public function build()
   {
-    return $this->subject("Tu certificado de asistencia a " . $this->tipo_curso . " de " . $this->curso . " está listo: ¡Accede ahora!")
+    return $this->subject("Tu certificado de asistencia está listo: ¡Accede ahora!")
     ->view('mails.mailsLoads');
   }
 }

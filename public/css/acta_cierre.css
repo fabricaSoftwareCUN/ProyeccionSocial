@@ -1,0 +1,56 @@
+/*
+  #1f2936
+  #8fda00
+  #FFCD00
+  #E5E5E5
+*/
+
+main {
+  z-index: 3 !important;
+  margin-top: 0.7cm !important;
+}
+
+body, html {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0.3cm 0.3cm 0.3cm 0.3cm;
+  /* background-color: rgba(0, 0, 255, 0.5); */
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.titulo {
+  font-style: bold;
+  font-size: 18px;
+}
+
+.nombre {
+  /* font-family: 'Montserrat', sans-serif; */
+  font-style: italic;
+  font-size: 36px;
+  text-decoration: underline;
+}
+
+.texto {
+  /* background-color: red; */
+  max-width: 100% !important;
+  width: 100% !important;
+  text-align: justify;
+  font-size: 16px;
+}
+
+.borde {
+  border: 1px #000 solid;
+}
+
+/* .img-firma {
+  width: 90%;
+  height: 80%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-bottom: 2px solid #000 !important;
+} */

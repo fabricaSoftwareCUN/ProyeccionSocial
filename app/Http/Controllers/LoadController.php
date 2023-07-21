@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Imports\LoadsImport;
 use App\Mail\LoadMailable;
+use App\Models\ClosingAct;
 use App\Models\Load;
+use Illuminate\Support\Facades\Log;
+use PDF;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -54,38 +57,63 @@ class LoadController extends Controller
     } catch (\Throwable $th) {
       return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->dangerBanner('Archivo no cargado, revisar por que: ' . $th->getMessage());
     }
+    $loadAct = DB::table('loads')->select('Acta_cierre')->distinct()->orderByDesc('Acta_cierre')->first();
 
+    if ($loadAct->Acta_cierre == null) {
+      $code = "00001";
+    } else {
+      $cont = $loadAct->Acta_cierre + 1;
+      $code = $cont;
+    }
+    $Code = str_pad($code, 5, "0", STR_PAD_LEFT);
+
+    $affected = DB::table('loads')->where('Acta_cierre', null)->update(['Acta_cierre' => $Code]);
+
+    if ($affected == 0) {
+      Log::error($affected . " registros actualizados en tabla loads");
+      // return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->dangerBanner('No pude cargar ningun registro nuevo, favor verificar.');
+    } else {
+      Log::info($affected . " registros actualizados en tabla loads");
+      // return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Registros cargados exitosamente.');
+    }
+
+    //se deja comentado el envio de correo por que hay que ver el tema de queue:workers en el servidor
 
     // AQUI SE EXTRAE LA INFROMACION DE LA TABLA PARA TRAER LOS CAMPOS EMAIL,NOMBRE,CURSO,FECHAINICIAL,FECHAFINAL.
-    $loads = DB::table('loads')->select('Email', 'Nombre_completo_participante', 'Nombre_producto', 'Tipo_producto', 'Fecha_inicial', 'Fecha_final')->distinct()->get();
-    foreach ($loads as $load) {
-      $mail = $load->Email;
-      $nombre = $load->Nombre_completo_participante;
-      $curso = $load->Nombre_producto;
-      $tipo_curso = $load->Tipo_producto;
 
-      // FORMATEAMOS FECHA INICIAL DE REALIZACION DEL CURSO
-      $day_i = Carbon::parse($load->Fecha_inicial)->format('d');
-      $dateMonthi = Carbon::parse($load->Fecha_inicial)->locale('es');
-      $month_i = $dateMonthi->monthName;
-      $year_i = Carbon::parse($load->Fecha_inicial)->format('Y');
-      // FORMATEAMOS FECHA FINAL DE REALIZACION DEL CURSO
-      $day_f = Carbon::parse($load->Fecha_final)->format('d');
-      $dateMonthf = Carbon::parse($load->Fecha_final)->locale('es');
-      $month_f = $dateMonthf->monthName;
-      $year_f = Carbon::parse($load->Fecha_final)->format('Y');
+    $mailCopy = DB::table('loads')->select('Email')->where('Acta_cierre', $Code)->get();
 
+    $copies = [];
+    // for ($i = 1; $i <= count($mailCopy); $i++) {
+    //   $copies = $mailCopy[$i];
+    // }
+    return count($mailCopy);
+    // foreach ($loads as $load) {
+    //   $mail = $load->Email;
+    //   $nombre = $load->Nombre_completo_participante;
+    //   $curso = $load->Nombre_producto;
+    //   $tipo_curso = $load->Tipo_producto;
+
+    //   // FORMATEAMOS FECHA INICIAL DE REALIZACION DEL CURSO
+    //   $day_i = Carbon::parse($load->Fecha_inicial)->format('d');
+    //   $dateMonthi = Carbon::parse($load->Fecha_inicial)->locale('es');
+    //   $month_i = $dateMonthi->monthName;
+    //   $year_i = Carbon::parse($load->Fecha_inicial)->format('Y');
+    //   // FORMATEAMOS FECHA FINAL DE REALIZACION DEL CURSO
+    //   $day_f = Carbon::parse($load->Fecha_final)->format('d');
+    //   $dateMonthf = Carbon::parse($load->Fecha_final)->locale('es');
+    //   $month_f = $dateMonthf->monthName;
+    //   $year_f = Carbon::parse($load->Fecha_final)->format('Y');
       try {
-        Mail::to($mail)->queue(
-          new LoadMailable($nombre, $curso, $tipo_curso, $day_i, $month_i, $year_i, $day_f, $month_f, $year_f)
-        );
+      Mail::to("janluy_moreno@cun.edu.co")->bcc($copies[])->queue(new LoadMailable());
       } catch (\Throwable $th) {
-        // return $th->getMessage();
-        return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->dangerBanner('Email no se envio, verificar!.' . $th->getMessage());
+      return $th;
+        // return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->dangerBanner('Email no se envio, verificar!.' . $th->getMessage());
       }
-    }
-    return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Registro cargado exitosamente.');
+    // }
+    return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Registros cargados y correo enviado exitosamente.');
   }
+
   /**
    * Show the form for creating a new resource.
    *
