@@ -34,15 +34,16 @@
         </div>
         <div class="col-md-12 mt-3 titulo">
           AREA DE FORMACIÓN CONTINUADA<br>
-          ACTA DE CIERRE No. 780-PS-Digital
+          ACTA DE CIERRE No.{{$Acta_cierre_report}}
+          -PS-Digital
         </div>
       </div>
       <div class="col-md-12 mt-2 texto">
         La suscrita Coordinadora Nacional de Proyección Social de la Corporación Unificada
         Nacional de Educación Superior en uso de las facultades conferidas se permite certificar
-        que las personas que se relacionan a continuación asistieron a la capacitación
-        <strong>Excel práctico 1.0</strong> en el área de Proyección Social, realizada del 16 de marzo del 2023 al
-        20 de abril del 2023, en la ciudad de Sincelejo, cumpliendo un total de 20 horas.
+        que las personas que se relacionan a continuación asistieron a {{$Tipo_producto_report}}
+        <strong>{{$Nombre_producto_report}}</strong> en el área de Proyección Social, {{$fecha_realizado}},
+        cumpliendo un total de {{$Duracion_report}} horas.
       </div>
       <div class="col-md-12 mt-3">
         <table class="table">

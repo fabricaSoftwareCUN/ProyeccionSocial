@@ -6,6 +6,7 @@ use App\Imports\LoadsImport;
 use App\Mail\LoadMailable;
 use App\Models\ClosingAct;
 use App\Models\Load;
+use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Illuminate\Support\Facades\Log;
 use PDF;
 use Carbon\Carbon;
@@ -77,43 +78,73 @@ class LoadController extends Controller
       // return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Registros cargados exitosamente.');
     }
 
-    //se deja comentado el envio de correo por que hay que ver el tema de queue:workers en el servidor
-
     // AQUI SE EXTRAE LA INFROMACION DE LA TABLA PARA TRAER LOS CAMPOS EMAIL,NOMBRE,CURSO,FECHAINICIAL,FECHAFINAL.
+    $receivers = DB::table('loads')->select('Email')->where('Acta_cierre', $Code)->get();
+    $copies = $receivers->pluck('Email');
+    try {
+      Mail::to($copies)->send(new LoadMailable());
+      // return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Registros cargados y correo enviado exitosamente.');
+    } catch (\Throwable $th) {
+      return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->dangerBanner('Email no se envio, verificar!.' . $th->getMessage());
+    }
 
-    $mailCopy = DB::table('loads')->select('Email')->where('Acta_cierre', $Code)->get();
+        $loads = DB::table('loads')
+        ->select('Consecutivo','Nombre_completo_participante','Numero_documento')
+        ->where('Acta_cierre', $code)
+        ->get();
 
-    $copies = [];
-    // for ($i = 1; $i <= count($mailCopy); $i++) {
-    //   $copies = $mailCopy[$i];
-    // }
-    return count($mailCopy);
-    // foreach ($loads as $load) {
-    //   $mail = $load->Email;
-    //   $nombre = $load->Nombre_completo_participante;
-    //   $curso = $load->Nombre_producto;
-    //   $tipo_curso = $load->Tipo_producto;
+        $reports = DB::table('loads')
+        ->select('Acta_cierre','Tipo_producto','Nombre_producto','Fecha_inicial','Fecha_final','Ciudad_expedición','Duración')
+        ->where('Acta_cierre', $code)
+        ->first();
+        // return $reports;
+        $Acta_cierre_report = $reports->Acta_cierre;
+        $Tipo_producto_report = $reports->Tipo_producto;
+        $Nombre_producto_report = $reports->Nombre_producto;
 
-    //   // FORMATEAMOS FECHA INICIAL DE REALIZACION DEL CURSO
-    //   $day_i = Carbon::parse($load->Fecha_inicial)->format('d');
-    //   $dateMonthi = Carbon::parse($load->Fecha_inicial)->locale('es');
-    //   $month_i = $dateMonthi->monthName;
-    //   $year_i = Carbon::parse($load->Fecha_inicial)->format('Y');
-    //   // FORMATEAMOS FECHA FINAL DE REALIZACION DEL CURSO
-    //   $day_f = Carbon::parse($load->Fecha_final)->format('d');
-    //   $dateMonthf = Carbon::parse($load->Fecha_final)->locale('es');
-    //   $month_f = $dateMonthf->monthName;
-    //   $year_f = Carbon::parse($load->Fecha_final)->format('Y');
-      try {
-      Mail::to("janluy_moreno@cun.edu.co")->bcc($copies[])->queue(new LoadMailable());
-      } catch (\Throwable $th) {
-      return $th;
-        // return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->dangerBanner('Email no se envio, verificar!.' . $th->getMessage());
-      }
-    // }
-    return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Registros cargados y correo enviado exitosamente.');
+        if ($reports->Fecha_inicial == $reports->Fecha_final) {
+          // FORMATEAMOS FECHA UNICA DEL CURSO NUEVO
+          $day_i = Carbon::parse($reports->Fecha_inicial)->format('d');
+          $dateMonth = Carbon::parse($reports->Fecha_inicial)->locale('es');
+          $month_i = $dateMonth->monthName;
+          $year_i = Carbon::parse($reports->Fecha_inicial)->format('Y');
+          $fecha_realizado = "Realizada el " . $day_i . " de " . $month_i . " del " . $year_i;
+        } else {
+          // FORMATEAMOS FECHA INICIAL DEL CURSO NUEVO
+          $day_i = Carbon::parse($reports->Fecha_inicial)->format('d');
+          $dateMonth = Carbon::parse($reports->Fecha_inicial)->locale('es');
+          $month_i = $dateMonth->monthName;
+          $year_i = Carbon::parse($reports->Fecha_inicial)->format('Y');
+          // FORMATEAMOS FECHA FINAL DEL CURSO NUEVO
+          $day_f = Carbon::parse($reports->Fecha_final)->format('d');
+          $dateMonth = Carbon::parse($reports->Fecha_final)->locale('es');
+          $month_f = $dateMonth->monthName;
+          $year_f = Carbon::parse($reports->Fecha_final)->format('Y');
+          $fecha_realizado = "Realizada del " . $day_i . " de " . $month_i . " del " . $year_i .
+            " al " . $day_f . " de " . $month_f . " del " . $year_f;
+        }
+
+        $Ciudad_expedicion_report = $reports->Ciudad_expedición;
+        $Duracion_report = $reports->Duración;
+
+        $pdf = PDF::loadView('loads.pdf',compact(
+          'loads','Acta_cierre_report','Tipo_producto_report','Nombre_producto_report',
+          'fecha_realizado','Ciudad_expedicion_report','Duracion_report'
+          ));
+        $pdf->setPaper('A4');
+        return $pdf->stream("Acta de cierre - " . $loadAct->Acta_cierre . '.pdf');
+        return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Acta generada exitosamente!.');
   }
 
+  /**
+   * Show the form for creating a new resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function closeAct($data)
+  {
+    return $data;
+  }
   /**
    * Show the form for creating a new resource.
    *

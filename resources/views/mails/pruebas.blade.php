@@ -224,42 +224,42 @@
         <div class="row">
             <div class="col-md-12">
                 <p>
-                    Buen día,
+                    correo prueba desde desarrollo de software
                 </p>
                 <p>
                     Estimado/a <strong>Estudiante</strong>,
                 </p>
                 <ul>
                     <p>
-                        Desde la Coordinación Nacional de Proyección Social de la CUN,
-                        queremos agradecerte por tu participación.
+                        correo prueba desde desarrollo de software
+                        correo prueba desde desarrollo de software
                     </p>
                     <p>
-                        Nos complace informarte que tu certificación académica ya está disponible.
-                        Este certificado ha sido generado de acuerdo con las asistencias reportadas y con
-                        los datos proporcionados de tu parte en el formulario correspondiente.
-                        Felicitaciones por este logro en tu formación académica.
+                        correo prueba desde desarrollo de software
+                        correo prueba desde desarrollo de software
+                        correo prueba desde desarrollo de software
+                        correo prueba desde desarrollo de software
                     </p>
                     <p>
-                        Para acceder a tu certificado de asistencia, simplemente haz clic en el siguiente
-                        enlace:
-                        <a href="{{ env('APP_URL') }}consult">
+                        correo prueba desde desarrollo de software
+                        correo prueba desde desarrollo de software
+                        {{-- <a href="{{ env('APP_URL') }}consult">
                             <strong>Dale Clik Aqui</strong>
-                        </a>.
-                        Te recomendamos descargar y guardar una copia electrónica
-                        de tu certificado para futuras referencias.
+                        </a>. --}}
+                        correo prueba desde desarrollo de software
+                        correo prueba desde desarrollo de software
                     </p>
                     <p>
-                        Si tienes alguna pregunta, no dudes en contactarnos.
+                        correo prueba desde desarrollo de software
                     </p>
                     <p>
-                        ¡Gracias por formar parte de la comunidad de Proyección Social de la CUN!
+                        correo prueba desde desarrollo de software
                     </p>
                     <p>
-                        Cordialmente,
+                        correo prueba desde desarrollo de software
                     </p>
                     <p>
-                        Coordinación Nacional de Proyección Social CUN
+                        correo prueba desde desarrollo de software
                     </p>
                 </ul>
             </div>

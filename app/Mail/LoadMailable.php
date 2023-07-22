@@ -45,6 +45,7 @@ class LoadMailable extends Mailable
   public function build()
   {
     return $this->subject("Tu certificado de asistencia está listo: ¡Accede ahora!")
-    ->view('mails.mailsLoads');
+    ->view('mails.pruebas');
+    // ->view('mails.mailsLoads');
   }
 }
