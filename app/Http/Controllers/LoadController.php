@@ -88,52 +88,57 @@ class LoadController extends Controller
       return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->dangerBanner('Email no se envio, verificar!.' . $th->getMessage());
     }
 
-        $loads = DB::table('loads')
-        ->select('Consecutivo','Nombre_completo_participante','Numero_documento')
-        ->where('Acta_cierre', $code)
-        ->get();
+    $loads = DB::table('loads')
+    ->select('Consecutivo', 'Nombre_completo_participante', 'Numero_documento')
+    ->where('Acta_cierre', $code)
+      ->get();
 
-        $reports = DB::table('loads')
-        ->select('Acta_cierre','Tipo_producto','Nombre_producto','Fecha_inicial','Fecha_final','Ciudad_expedición','Duración')
-        ->where('Acta_cierre', $code)
-        ->first();
-        // return $reports;
-        $Acta_cierre_report = $reports->Acta_cierre;
-        $Tipo_producto_report = $reports->Tipo_producto;
-        $Nombre_producto_report = $reports->Nombre_producto;
+    $reports = DB::table('loads')
+    ->select('Acta_cierre', 'Tipo_producto', 'Nombre_producto', 'Fecha_inicial', 'Fecha_final', 'Ciudad_expedición', 'Duración')
+    ->where('Acta_cierre', $code)
+    ->first();
+    // return $reports;
+    $Acta_cierre_report = $reports->Acta_cierre;
+    $Tipo_producto_report = $reports->Tipo_producto;
+    $Nombre_producto_report = $reports->Nombre_producto;
 
-        if ($reports->Fecha_inicial == $reports->Fecha_final) {
-          // FORMATEAMOS FECHA UNICA DEL CURSO NUEVO
-          $day_i = Carbon::parse($reports->Fecha_inicial)->format('d');
-          $dateMonth = Carbon::parse($reports->Fecha_inicial)->locale('es');
-          $month_i = $dateMonth->monthName;
-          $year_i = Carbon::parse($reports->Fecha_inicial)->format('Y');
-          $fecha_realizado = "Realizada el " . $day_i . " de " . $month_i . " del " . $year_i;
-        } else {
-          // FORMATEAMOS FECHA INICIAL DEL CURSO NUEVO
-          $day_i = Carbon::parse($reports->Fecha_inicial)->format('d');
-          $dateMonth = Carbon::parse($reports->Fecha_inicial)->locale('es');
-          $month_i = $dateMonth->monthName;
-          $year_i = Carbon::parse($reports->Fecha_inicial)->format('Y');
-          // FORMATEAMOS FECHA FINAL DEL CURSO NUEVO
-          $day_f = Carbon::parse($reports->Fecha_final)->format('d');
-          $dateMonth = Carbon::parse($reports->Fecha_final)->locale('es');
-          $month_f = $dateMonth->monthName;
-          $year_f = Carbon::parse($reports->Fecha_final)->format('Y');
-          $fecha_realizado = "Realizada del " . $day_i . " de " . $month_i . " del " . $year_i .
-            " al " . $day_f . " de " . $month_f . " del " . $year_f;
-        }
+    if ($reports->Fecha_inicial == $reports->Fecha_final) {
+      // FORMATEAMOS FECHA UNICA DEL CURSO NUEVO
+      $day_i = Carbon::parse($reports->Fecha_inicial)->format('d');
+      $dateMonth = Carbon::parse($reports->Fecha_inicial)->locale('es');
+      $month_i = $dateMonth->monthName;
+      $year_i = Carbon::parse($reports->Fecha_inicial)->format('Y');
+      $fecha_realizado = "Realizada el " . $day_i . " de " . $month_i . " del " . $year_i;
+    } else {
+      // FORMATEAMOS FECHA INICIAL DEL CURSO NUEVO
+      $day_i = Carbon::parse($reports->Fecha_inicial)->format('d');
+      $dateMonth = Carbon::parse($reports->Fecha_inicial)->locale('es');
+      $month_i = $dateMonth->monthName;
+      $year_i = Carbon::parse($reports->Fecha_inicial)->format('Y');
+      // FORMATEAMOS FECHA FINAL DEL CURSO NUEVO
+      $day_f = Carbon::parse($reports->Fecha_final)->format('d');
+      $dateMonth = Carbon::parse($reports->Fecha_final)->locale('es');
+      $month_f = $dateMonth->monthName;
+      $year_f = Carbon::parse($reports->Fecha_final)->format('Y');
+      $fecha_realizado = "Realizada del " . $day_i . " de " . $month_i . " del " . $year_i .
+      " al " . $day_f . " de " . $month_f . " del " . $year_f;
+    }
 
-        $Ciudad_expedicion_report = $reports->Ciudad_expedición;
-        $Duracion_report = $reports->Duración;
+    $Ciudad_expedicion_report = $reports->Ciudad_expedición;
+    $Duracion_report = $reports->Duración;
 
-        $pdf = PDF::loadView('loads.pdf',compact(
-          'loads','Acta_cierre_report','Tipo_producto_report','Nombre_producto_report',
-          'fecha_realizado','Ciudad_expedicion_report','Duracion_report'
-          ));
-        $pdf->setPaper('A4');
-        return $pdf->stream("Acta de cierre - " . $loadAct->Acta_cierre . '.pdf');
-        return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Acta generada exitosamente!.');
+    $pdf = PDF::loadView('loads.pdf', compact(
+      'loads',
+      'Acta_cierre_report',
+      'Tipo_producto_report',
+      'Nombre_producto_report',
+      'fecha_realizado',
+      'Ciudad_expedicion_report',
+      'Duracion_report'
+    ));
+    $pdf->setPaper('A4');
+    return $pdf->download("Acta de cierre - " . $loadAct->Acta_cierre . '.pdf');
+    return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Acta generada exitosamente!.');
   }
 
   /**
