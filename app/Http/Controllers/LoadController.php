@@ -137,7 +137,7 @@ class LoadController extends Controller
       'Duracion_report'
     ));
     $pdf->setPaper('A4');
-    return $pdf->download("Acta de cierre - " . $loadAct->Acta_cierre . '.pdf');
+    return $pdf->stream("Acta de cierre - " . $loadAct->Acta_cierre . '.pdf');
     return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Acta generada exitosamente!.');
   }
 
