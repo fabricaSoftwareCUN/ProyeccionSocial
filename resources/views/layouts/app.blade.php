@@ -57,6 +57,7 @@
       var container_load = document.getElementById('container_load');
       container_load.style.visibility = 'hidden';
       container_load.style.opacity = '0';
+      document.getElementById('file').value="";
     }
 
     function mostrar() {
