@@ -60,7 +60,7 @@
         </div>
 
         <div class="mt-2">{{$fecha_realizado}}
-          <br><b>Con una intensidad de {{ $duración }} horas</b>
+          <br>Con una intensidad de {{ $duración }} horas
         </div>
 
         <div class="col-md-12 mt-2 t3">
@@ -105,7 +105,7 @@
               <a href="{{ $url_validate }}" target="_blank"><img src="data:image/svg+xml;base64, {!! base64_encode($qr) !!}" /></a>
             </div> --}}
             <div class="card-footer">
-              <h5 style="color:rgba(0, 0, 0, 0.3)">{{ $watermark }}</h5>
+              <h2>{{ $consecutivo }}</h2>
             </div>
           </div>
         </div>
@@ -115,7 +115,7 @@
 
   <footer>
     <div class="text-center p-1 titulo">
-      <h2>{{ $consecutivo }}</h2>
+      <h5 style="color:rgba(0, 0, 0, 0)">{{ $consecutivo }}</h5>
     </div>
   </footer>
 </body>
