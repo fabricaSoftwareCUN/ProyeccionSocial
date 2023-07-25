@@ -36,5 +36,5 @@ Route::middleware([
   Route::resource('/loads', LoadController::class);
   Route::resource('/downloads', DownloadController::class);
   Route::post('load', [LoadController::class, 'load'])->name('load');
-  // Route::get('printPDF', [LoadController::class, 'printPDF'])->name('printPDF');
+  Route::get('reportes', [LoadController::class, 'printPDF'])->name('reportes');
 });

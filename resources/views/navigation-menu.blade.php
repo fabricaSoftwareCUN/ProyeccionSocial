@@ -21,9 +21,9 @@
           <x-jet-nav-link href="{{ route('downloads.index') }}" :active="request()->routeIs('downloads.*')">
             {{ __('downloaded certificates') }}
           </x-jet-nav-link>
-          {{-- <x-jet-nav-link href="{{ route('reportes') }}" :active="request()->routeIs('reportes')">
+          <x-jet-nav-link href="{{ route('reportes') }}" :active="request()->routeIs('reportes')">
             {{ __('Reports') }}
-          </x-jet-nav-link> --}}
+          </x-jet-nav-link>
         </div>
       </div>
 
@@ -162,9 +162,9 @@
       <x-jet-responsive-nav-link href="{{ route('downloads.index') }}" :active="request()->routeIs('downloads.*')">
         {{ __('downloaded certificates') }}
       </x-jet-responsive-nav-link>
-      {{--<x-jet-responsive-nav-link href="{{ route('reportes') }}" :active="request()->routeIs('reportes')">
+      <x-jet-responsive-nav-link href="{{ route('reportes') }}" :active="request()->routeIs('reportes')">
         {{ __('Reports') }}
-      </x-jet-responsive-nav-link> --}}
+      </x-jet-responsive-nav-link>
     </div>
 
     <!-- Responsive Settings Options -->

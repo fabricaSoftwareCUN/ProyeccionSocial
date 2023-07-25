@@ -47,6 +47,20 @@ header {
   border: 1px #000 solid;
 }
 
+.margin-right {
+  text-align: right;
+  margin-right: 10%;
+}
+
+.margin-left {
+  text-align: left;
+  margin-left: 10%;
+}
+
+.margin-center {
+  text-align: center;
+}
+
 /* .img-firma {
   width: 90%;
   height: 80%;

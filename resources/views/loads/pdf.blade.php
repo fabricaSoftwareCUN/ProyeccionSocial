@@ -39,10 +39,10 @@
         </div>
       </div>
       <div class="col-md-12 mt-2 texto">
-        La suscrita Coordinadora Nacional de Proyección Social de la Corporación Unificada
-        Nacional de Educación Superior en uso de las facultades conferidas se permite certificar
-        que las personas que se relacionan a continuación asistieron a {{$Tipo_producto_report}}
-        <strong>{{$Nombre_producto_report}}</strong> en el área de Proyección Social, {{$fecha_realizado}},
+        La Coordinadora Nacional de Proyección Social de la Corporación Unificada Nacional
+        de Educación Superior, se permite certificar que las personas que se
+        relacionan a continuación asistieron y aprobaron {{$Tipo_producto_report}}
+        <strong>{{$Nombre_producto_report}}</strong>; {{$fecha_realizado}}, en la ciudad de Sincelejo,
         cumpliendo un total de {{$Duracion_report}} horas.
       </div>
       <div class="col-md-12 mt-3">
@@ -51,24 +51,16 @@
             <th class="borde">N. de Consecutivo Único Nacional</th>
             <th class="borde">NOMBRES COMPLETOS</th>
             <th class="borde">NÚMERO DE IDENTIFICACIÓN</th>
-            <th class="borde">FIRMA</th>
           </tr>
           @if($loads->isEmpty())
           @else
           @foreach ($loads as $load)
           <tr>
-            <td class="borde" width="15%">{{ $load->Consecutivo }}</td>
-            <td class="borde " width="45%">{{ $load->Nombre_completo_participante }}</td>
-            <td class="borde" width="25%">{{ $load->Numero_documento }}</td>
-            <td class="borde" width="15%"></td>
+            <td class="borde margin-center" width="15%">{{ $load->Consecutivo }}</td>
+            <td class="borde margin-left" width="45%">{{ $load->Nombre_completo_participante }}</td>
+            <td class="borde margin-right" width="40%">{{ $load->Numero_documento }}</td>
           </tr>
           @endforeach
-          {{-- <tr class="text-center">
-            <td class="borde"></td>
-            <td class="borde"></td>
-            <td class="borde"></td>
-            <td class="borde"></td>
-          </tr> --}}
           @endif
         </table>
       </div>
@@ -76,42 +68,6 @@
       <div class="col-md-12 mt-2 text-center">
         {{$Expedicion_report}}
       </div>
-
-      {{-- <div class="col-md-12">
-        <div class="col-md-12 mt-2 t3">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa praesentium, quibusdam excepturi sequi dolorem non omnis suscipit iste vero, beatae quae perferendis veniam soluta, ipsa amet sunt facilis nemo minima!
-        </div>
-        <div class="col-md-12 mt-2 t3">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa praesentium, quibusdam excepturi sequi dolorem non omnis suscipit iste vero, beatae quae perferendis veniam soluta, ipsa amet sunt facilis nemo minima!
-        </div>
-        <div class="col-md-12 mt-2 t3">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa praesentium, quibusdam excepturi sequi dolorem non omnis suscipit iste vero, beatae quae perferendis veniam soluta, ipsa amet sunt facilis nemo minima!
-        </div>
-        <div class="col-md-12 mt-2 t3">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa praesentium, quibusdam excepturi sequi dolorem non omnis suscipit iste vero, beatae quae perferendis veniam soluta, ipsa amet sunt facilis nemo minima!
-        </div>
-        <div class="col-md-12 mt-2 t3">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa praesentium, quibusdam excepturi sequi dolorem non omnis suscipit iste vero, beatae quae perferendis veniam soluta, ipsa amet sunt facilis nemo minima!
-        </div>
-        <div class="col-md-12 mt-2 t3">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa praesentium, quibusdam excepturi sequi dolorem non omnis suscipit iste vero, beatae quae perferendis veniam soluta, ipsa amet sunt facilis nemo minima!
-        </div>
-        <div class="col-md-12 mt-2 t3">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa praesentium, quibusdam excepturi sequi dolorem non omnis suscipit iste vero, beatae quae perferendis veniam soluta, ipsa amet sunt facilis nemo minima!
-        </div>
-        <div class="col-md-12 mt-2 t3">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa praesentium, quibusdam excepturi sequi dolorem non omnis suscipit iste vero, beatae quae perferendis veniam soluta, ipsa amet sunt facilis nemo minima!
-        </div>
-        <div class="col-md-12 mt-2 t3">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa praesentium, quibusdam excepturi sequi dolorem non omnis suscipit iste vero, beatae quae perferendis veniam soluta, ipsa amet sunt facilis nemo minima!
-        </div>
-        <div class="col-md-12 mt-2 t3">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa praesentium, quibusdam excepturi sequi dolorem non omnis suscipit iste vero, beatae quae perferendis veniam soluta, ipsa amet sunt facilis nemo minima!
-        </div>
-        <div class="col-md-12 mt-2 t3">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa praesentium, quibusdam excepturi sequi dolorem non omnis suscipit iste vero, beatae quae perferendis veniam soluta, ipsa amet sunt facilis nemo minima!
-        </div>
-      </div> --}}
     </div>
   </main>
 
