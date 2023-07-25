@@ -94,7 +94,7 @@ class LoadController extends Controller
       ->get();
 
     $reports = DB::table('loads')
-      ->select('Acta_cierre', 'Tipo_producto', 'Nombre_producto', 'Fecha_inicial', 'Fecha_final', 'Ciudad_expedición', 'Duración')
+      ->select('Acta_cierre', 'Tipo_producto', 'Nombre_producto', 'Fecha_inicial', 'Fecha_final', 'Ciudad_expedición', 'Duración', 'created_at')
     ->where('Acta_cierre', $code)
     ->first();
     // return $reports;

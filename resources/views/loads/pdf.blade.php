@@ -33,7 +33,7 @@
           CORPORACIÓN UNIFICADA NACIONAL DE EDUCACIÓN SUPERIOR
         </div>
         <div class="col-md-12 mt-3 titulo">
-          AREA DE FORMACIÓN CONTINUADA<br>
+          Coordinación Nacional de Proyección Social<br>
           ACTA DE CIERRE No.{{$Acta_cierre_report}}
           -PS-Digital
         </div>
