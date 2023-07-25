@@ -94,7 +94,7 @@ class LoadController extends Controller
       ->get();
 
     $reports = DB::table('loads')
-    ->select('Acta_cierre', 'Tipo_producto', 'Nombre_producto', 'Fecha_inicial', 'Fecha_final', 'Ciudad_expedición', 'Duración')
+      ->select('Acta_cierre', 'Tipo_producto', 'Nombre_producto', 'Fecha_inicial', 'Fecha_final', 'Ciudad_expedición', 'Duración')
     ->where('Acta_cierre', $code)
     ->first();
     // return $reports;
@@ -127,6 +127,14 @@ class LoadController extends Controller
     $Ciudad_expedicion_report = $reports->Ciudad_expedición;
     $Duracion_report = $reports->Duración;
 
+    // FORMATEAMOS FECHA EXPEDCION DEL ACTA DE CIERRE
+    $day_r = Carbon::parse($reports->created_at)->format('d');
+    $dateMonth = Carbon::parse($reports->created_at)->locale('es');
+    $month_r = $dateMonth->monthName;
+    $year_r = Carbon::parse($reports->created_at)->format('Y');
+    $Expedicion_report = "Dada en la ciudad de " . $Ciudad_expedicion_report .
+    ", a los " . $day_r . " días del mes de " . $month_r . " del " . $year_r;
+
     $pdf = PDF::loadView('loads.pdf', compact(
       'loads',
       'Acta_cierre_report',
@@ -134,10 +142,11 @@ class LoadController extends Controller
       'Nombre_producto_report',
       'fecha_realizado',
       'Ciudad_expedicion_report',
-      'Duracion_report'
+      'Duracion_report',
+      'Expedicion_report'
     ));
     $pdf->setPaper('A4');
-    return $pdf->stream("Acta de cierre - " . $loadAct->Acta_cierre . '.pdf');
+    return $pdf->stream("Acta de cierre - " . $reports->Acta_cierre . '.pdf');
     return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Acta generada exitosamente!.');
   }
 

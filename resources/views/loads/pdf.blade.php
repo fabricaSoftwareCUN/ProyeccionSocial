@@ -74,7 +74,7 @@
       </div>
 
       <div class="col-md-12 mt-2 text-center">
-        Dada en la ciudad de Sincelejo, a los 24 días del mes de mayo del 2023.
+        {{$Expedicion_report}}
       </div>
 
       {{-- <div class="col-md-12">
