@@ -75,12 +75,6 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
-                                      {{-- <div class="col-md-5">
-                                          <strong>Tipo de participante:</strong>
-                                      </div>
-                                      <div class="col-md-7">
-                                        {{ $load->participant_type }}
-                                      </div>--}}
                                       <div class="col-md-5">
                                         <strong>Tipo de documento:</strong>
                                       </div>
