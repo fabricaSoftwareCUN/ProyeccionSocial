@@ -78,7 +78,7 @@ class consultController extends Controller
     if (count($copy) == 0) {
       //DEFINIMOS VARIABLES GENERALES PARA EL REPORTE NUEVO
       $entro = "nuevo";
-      $consecutivo = $new->Consecutivo;
+      $consecutivo = str_pad($new->id, 5, "0", STR_PAD_LEFT);
       $nombre_producto = $new->Nombre_producto;
       $name = $new->Nombre_completo_participante;
       $tipo_documento = $new->Tipo_documento;
@@ -202,14 +202,6 @@ class consultController extends Controller
         " días del mes de " . $month . " del " . $year;
       }
     }
-    // //DEFINIMOS LA URL QUE SE ENVIARA DENTRO DEL QR
-    // $url_validate = $base . "validateQr/" . $name . "/" . $document .  "/" .
-    // $date_realization . "/" . $consecutivo;
-    // // DEFINMOS LAS CARACTERISTICAS DEL QR
-    // $qr = QrCode::size(90)->backgroundColor(255, 255, 255, 25)->color(31, 41, 54)
-    // ->margin(2)->generate($url_validate);
-    // PASAMOS LOS DEMAS PARAMETROS PARA GENERAR EL CERTIFICADO
-    // $cons = now()->format('Ym');
     $pdf = PDF::loadView(
       'students.pdf',
       compact(
@@ -230,9 +222,6 @@ class consultController extends Controller
     );
     $pdf->setPaper('A4', 'landscape');
     return $pdf->download($name . "-" . $document . '.pdf');
-    // return "entro=>" . $entro . "<br>dia realizacion=>" . $day_r . "<br>mes realizacion=>" . $month_r . "<br>año realizacion=>" . $year_r . "<br>nombre estudiante=>" . $name
-    // . "<br>documento estudiante=>" . $document . "<br>fecha realizacion=>" . $date_realization . "<br>consecutivo=>" . $consecutive . "<br> url del qr=>" . $url_validate
-    // . "<br>dia expedicion=>" . $day . "<br>mes expedicion=>" . $month . "<br>años expedicion=>" . $year . "<br>document_type=>" . $document_type;
   }
 
   /**

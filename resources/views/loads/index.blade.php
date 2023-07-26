@@ -86,7 +86,11 @@
                           <tr>
                             <td>{{ $i }}</td>
                             <td>{{ $load->Nombre_completo_participante }}</td>
-                            <td>{{ $load->Consecutivo }}</td>
+                            <td>
+                              @php
+                                echo $Consecutivo = str_pad($load->id, 5, "0", STR_PAD_LEFT);
+                              @endphp
+                            </td>
                             <td>{{ $load->Numero_documento }}</td>
                             <td>{{ $load->Nombre_producto }}</td>
                             <td>{{ $load->Email }}</td>

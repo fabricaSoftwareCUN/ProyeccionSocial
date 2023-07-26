@@ -40,6 +40,7 @@
                         <thead>
                           <tr>
                             <th></th>
+                            <th>Consecutivo</th>
                             <th>Nombre estudiante</th>
                             <th>Nombre producto</th>
                             <th>Número documento</th>
@@ -52,6 +53,7 @@
                           @foreach ($loads as $load)
                           <tr>
                             <td>{{ $i }}</td>
+                            <td>{{ $load->Consecutivo }}</td>
                             <td>{{ $load->Nombre_completo_participante }}</td>
                             <td>{{ $load->Nombre_producto }}</td>
                             <td>{{ $load->Numero_documento }}</td>

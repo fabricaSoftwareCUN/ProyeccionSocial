@@ -17,7 +17,7 @@ class LoadsImport implements ToModel, WithHeadingRow
    */
   public function model(array $row)
   {
-    return new Load(['Consecutivo' => $row['consecutivo'],
+    return new Load([
       'Nombre_producto' => $row['nombre_producto'],
       'Nombre_completo_participante' => $row['nombre_completo_participante'],
       'Tipo_documento' => $row['tipo_documento'],

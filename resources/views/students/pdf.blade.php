@@ -101,9 +101,6 @@
         @endif
         <div class="container mt-5">
           <div class="card">
-            {{-- <div class="card-body">
-              <a href="{{ $url_validate }}" target="_blank"><img src="data:image/svg+xml;base64, {!! base64_encode($qr) !!}" /></a>
-            </div> --}}
             <div class="card-footer">
               <h2>{{ $consecutivo }}</h2>
             </div>

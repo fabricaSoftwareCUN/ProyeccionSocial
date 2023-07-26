@@ -27,7 +27,7 @@ class LoadController extends Controller
     $loadscount = Load::all();
     $texto = trim($request->get('texto'));
     $loads = Load::where('Nombre_producto', 'LIKE', '%' . $texto . '%')
-      ->orWhere('Consecutivo', 'LIKE', '%' . $texto . '%')
+      ->orWhere('id', 'LIKE', '%' . $texto . '%')
       ->orWhere('Numero_documento', 'LIKE', '%' . $texto . '%')
       ->orWhere('Nombre_completo_participante', 'LIKE', '%' . $texto . '%')
       ->orderByDesc('id')
@@ -49,7 +49,7 @@ class LoadController extends Controller
     $texto = trim($request->get('texto'));
     $loadscount = Load::all();
     $loads = Load::where('Nombre_producto', 'LIKE', '%' . $texto . '%')
-      ->orWhere('Consecutivo', 'LIKE', '%' . $texto . '%')
+      ->orWhere('id', 'LIKE', '%' . $texto . '%')
       ->orderByDesc('id')
       ->paginate(15);
 
@@ -70,13 +70,13 @@ class LoadController extends Controller
 
     $affected = DB::table('loads')->where('Acta_cierre', null)->update(['Acta_cierre' => $Code]);
 
-    if ($affected == 0) {
-      Log::error($affected . " registros actualizados en tabla loads");
-      // return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->dangerBanner('No pude cargar ningun registro nuevo, favor verificar.');
-    } else {
-      Log::info($affected . " registros actualizados en tabla loads");
-      // return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Registros cargados exitosamente.');
-    }
+    // if ($affected == 0) {
+    //   Log::error($affected . " registros actualizados en tabla loads");
+    //   // return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->dangerBanner('No pude cargar ningun registro nuevo, favor verificar.');
+    // } else {
+    //   Log::info($affected . " registros actualizados en tabla loads");
+    //   // return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Registros cargados exitosamente.');
+    // }
 
     // AQUI SE EXTRAE LA INFROMACION DE LA TABLA PARA TRAER LOS CAMPOS EMAIL,NOMBRE,CURSO,FECHAINICIAL,FECHAFINAL.
     $receivers = DB::table('loads')->select('Email')->where('Acta_cierre', $Code)->get();
@@ -89,7 +89,7 @@ class LoadController extends Controller
     }
 
     $loads = DB::table('loads')
-    ->select('Consecutivo', 'Nombre_completo_participante', 'Numero_documento')
+      ->select('id', 'Nombre_completo_participante', 'Numero_documento')
     ->where('Acta_cierre', $code)
       ->get();
 

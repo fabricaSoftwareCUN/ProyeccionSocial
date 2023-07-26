@@ -56,7 +56,7 @@
           @else
           @foreach ($loads as $load)
           <tr>
-            <td class="borde margin-center" width="15%">{{ $load->Consecutivo }}</td>
+            <td class="borde margin-center" width="15%">{{ $load->id }}</td>
             <td class="borde margin-left" width="45%">{{ $load->Nombre_completo_participante }}</td>
             <td class="borde margin-right" width="40%">{{ $load->Numero_documento }}</td>
           </tr>
