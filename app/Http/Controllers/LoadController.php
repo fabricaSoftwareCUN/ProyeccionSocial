@@ -42,7 +42,7 @@ class LoadController extends Controller
    */
   public function minutes(Request $request)
   {
-    $minutes = Load::distinct()->select('Acta_cierre', 'Nombre_producto', 'created_at')->get()->unique('Acta_cierre');
+    $minutes = Load::distinct()->select('Acta_cierre', 'Nombre_producto', 'created_at')->orderByDesc('Acta_cierre')->get()->unique('Acta_cierre');
     $texto = trim($request->get('texto'));
     $filter = Load::where('Nombre_producto', 'LIKE', '%' . $texto . '%');
 
