@@ -3,7 +3,6 @@
 use App\Http\Controllers\consultController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\LoadController;
-use App\Http\Controllers\QrCodeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,5 +35,6 @@ Route::middleware([
   Route::resource('/loads', LoadController::class);
   Route::resource('/downloads', DownloadController::class);
   Route::post('load', [LoadController::class, 'load'])->name('load');
-  Route::get('reportes', [LoadController::class, 'printPDF'])->name('reportes');
+  Route::get('/minutes', [LoadController::class, 'minutes'])->name('minutes');
+  Route::get('/printMinutes/{Acta_cierre?}', [LoadController::class, 'printMinutes'])->name('printMinutes');
 });
