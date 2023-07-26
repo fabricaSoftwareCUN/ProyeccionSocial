@@ -155,15 +155,6 @@ class LoadController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function closeAct($data)
-  {
-    return $data;
-  }
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
   public function create()
   {
     //

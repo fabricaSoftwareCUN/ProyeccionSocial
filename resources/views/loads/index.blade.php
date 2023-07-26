@@ -76,6 +76,7 @@
                             <th>Documento</th>
                             <th>Nombre producto</th>
                             <th>Correo electronico</th>
+                            <th>{{count($loads)}}</th>
                           </tr>
                         </thead>
                         <tbody>
