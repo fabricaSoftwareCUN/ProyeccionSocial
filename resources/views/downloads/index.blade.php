@@ -44,6 +44,7 @@
                             <th>Nombre estudiante</th>
                             <th>Nombre producto</th>
                             <th>Número documento</th>
+                            <th>Fecha de descarga</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -57,6 +58,7 @@
                             <td>{{ $load->Nombre_completo_participante }}</td>
                             <td>{{ $load->Nombre_producto }}</td>
                             <td>{{ $load->Numero_documento }}</td>
+                            <td>{{ $load->created_at }}</td>
                             <td>
                               <div class="btn-group" role="group" aria-label="Basic example">
                                 <a class="sombra btn btn-info" href="#showModal{{ $load->id }}" data-bs-toggle="modal"><i class="bi bi-eye"></i></a>
@@ -110,7 +112,14 @@
                                         <strong>Ciudad expedición:</strong>
                                       </div>
                                       <div class="col-md-7">
-                                        {{ $load->Ciudad_expedición }}</div>
+                                        {{ $load->Ciudad_expedición }}
+                                      </div>
+                                      <div class="col-md-5">
+                                        <strong>Fecha de descarga:</strong>
+                                      </div>
+                                      <div class="col-md-7">
+                                        {{ $load->created_at }}
+                                      </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
