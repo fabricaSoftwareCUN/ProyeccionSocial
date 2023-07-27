@@ -72,7 +72,10 @@
   </main>
 
   <footer>
-    <div class="text-center mt-5 p-1 titulo">
+    <div class="text-center mt-2">
+      <img src="{{env('APP_URL')}}images/firmas/firma-liliana.png" alt="Firma digital">
+    </div>
+    <div class="text-center p-1 titulo">
       Liliana Villamizar Pérez <br>Coordinadora Nacional de Proyección Social
     </div>
   </footer>

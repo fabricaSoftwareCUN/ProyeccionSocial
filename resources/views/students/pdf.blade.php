@@ -70,7 +70,7 @@
         <div class="mt-4 firmas">
           <div class="firma00">
             <div class="img-firma" >
-              <img src="{{env('APP_URL')}}images/firmas/firma-jlmc.png" alt="Firma digital">
+              <img src="{{env('APP_URL')}}images/firmas/firma-liliana.png" alt="Firma digital">
             </div>
             <div style="font-size:14px;">
               <strong>{{__('nombreFirmaA')}}</strong>
@@ -83,7 +83,7 @@
         <div class="firmas mt-4">
           <div class="firma01">
             <div class="img-firma" >
-              <img src="{{env('APP_URL')}}images/firmas/firma-jlmc.png" alt="Firma digital">
+              <img src="{{env('APP_URL')}}images/firmas/firma-liliana.png" alt="Firma digital">
             </div>
             <div style="font-size:14px;">
               <strong>{{__('nombreFirmaA')}}</strong>
@@ -93,7 +93,7 @@
           </div>
           <div class="firma02">
             <div class="img-firma">
-              <img src="{{env('APP_URL')}}images/firmas/firma-jlmc.png" alt="Firma digital">
+              <img src="{{env('APP_URL')}}images/firmas/firma-liliana.png" alt="Firma digital">
             </div>
             Firma
           </div>

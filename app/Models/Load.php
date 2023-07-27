@@ -10,8 +10,6 @@ class Load extends Model
   use HasFactory;
 
   protected $fillable = [
-    'Consecutivo',
-    'Subitulo',
     'Nombre_producto',
     'Nombre_completo_participante',
     'Tipo_documento',

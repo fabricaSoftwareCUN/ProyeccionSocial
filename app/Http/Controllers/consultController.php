@@ -69,12 +69,11 @@ class consultController extends Controller
     // VALIDAMOS QUE EL CERTIFICADO SOLICITADO NO SE HAYA CREADO ANTERIORMENTE
     $cursoSolicitado = $new->Nombre_producto;
     $documentoSolicitado = $new->Numero_documento;
-    $consecutivoSolicitado = $new->Consecutivo;
+    $consecutivoSolicitado = str_pad($new->id, 5, "0", STR_PAD_LEFT);
     $copy = Download::where([['Nombre_producto', '=', $cursoSolicitado],
       ['Numero_documento', '=', $documentoSolicitado],
       ['Consecutivo', '=', $consecutivoSolicitado],
     ])->get();
-
     if (count($copy) == 0) {
       //DEFINIMOS VARIABLES GENERALES PARA EL REPORTE NUEVO
       $entro = "nuevo";

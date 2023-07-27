@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\LoadsExport;
 use App\Imports\LoadsImport;
 use App\Mail\LoadMailable;
 use App\Models\ClosingAct;
@@ -172,6 +173,17 @@ class LoadController extends Controller
     return $this->printMinutes($code);
 
     return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Acta generada exitosamente!.');
+  }
+
+  /**
+   * Download list of all records in loads table.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function export()
+  {
+    return Excel::download(new LoadsExport, 'registros_cargados.xlsx');
+    return view('loads.index');
   }
 
   /**

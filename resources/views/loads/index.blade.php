@@ -25,13 +25,16 @@
                 </div>
                 <div class="card-body">
                   <div class="row">
-                    <div class="col-md-8 mx-auto text-center">
+                    <div class="col-md-6 mx-auto text-center">
                       <form action="{{ route('load') }}" method="POST" enctype="multipart/form-data" novalidate>
                         @csrf
-                        <div class="row">
+                        <div class="row" >
                           <x-file></x-file>
-                          <div class="col-md-4">
+                          <div class="col-md-7 mt-2">
                             <button class="sombra btn btn-success ml-4" width="50%" type="submit" onclick="mostrar()">{{ __('Load certificate records') }}</button>
+                          </div>
+                          <div class="col-md-5 mt-2">
+                            <a class="sombra btn btn-warning ml-4" width="50%" href="{{ route('export') }}">{{ __('Export User Data') }}</a>
                           </div>
                           @error('file')
                             <div class="error">{{ $message }}</div>
