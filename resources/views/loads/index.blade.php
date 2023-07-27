@@ -205,7 +205,13 @@
                                           <strong>Nombre del participante:</strong>
                                         </div>
                                         <div class="col-md-12">
-                                          <input type="text" class="form-control" name="Nombre_completo_participante" id="Nombre_completo_participante" value="{{ old('Nombre_completo_participanteNombre_completo_participante', $load->Nombre_completo_participante) }}">
+                                          <input type="text" class="form-control" name="Nombre_completo_participante" id="Nombre_completo_participante" value="{{ old('Nombre_completo_participante', $load->Nombre_completo_participante) }}">
+                                        </div>
+                                        <div class="col-md-12">
+                                          <strong>Correo del participante:</strong>
+                                        </div>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" name="Email" id="Email" value="{{ old('Email', $load->Email) }}">
                                         </div>
                                         <div class="col-md-7">
                                           <strong>Tipo de documento:</strong>
