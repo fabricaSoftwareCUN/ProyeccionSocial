@@ -7,7 +7,7 @@
 
 
 body, html {
-  /* background-image: url('https://proyeccionsocial.cunapp.dev/images/certificados/fondo-certificado.jpg') !important; */
+  /* background-image: url('https://proyeccionsocial.cunapp.dev/images/certificados/fondo-certificado.png') !important; */
   font-family: 'Montserrat', sans-serif;
   font-size: 22px;
   background-image: url('http://localhost/ProyeccionSocial/public/images/certificados/fondo-certificado.png') !important;
@@ -17,7 +17,7 @@ body, html {
 }
 
 .nombre {
-  font-family: 'Homemade Apple', cursive !important;
+  font-family: 'Parisienne', cursive !important;
   font-style: italic;
   font-size: 38px;
   text-decoration: underline;

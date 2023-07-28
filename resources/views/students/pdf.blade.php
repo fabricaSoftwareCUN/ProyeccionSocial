@@ -9,9 +9,7 @@
     <link href="{{ env('APP_URL') }}css/certificados.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     {{-- FONTS GOOGLE --}}
-    {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> --}}
-    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Montserrat:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&family=Parisienne&display=swap" rel="stylesheet">
     <style>
         body, html {
           font-family: 'Montserrat', sans-serif;
@@ -23,12 +21,12 @@
 <body>
   <header>
     <div class="div-img-left">
-      <img src="{{env('APP_URL')}}images/Proyección Social - Fondo blanco.png" alt="cun-logo-proyeccion" width="175">
+      <img src="{{env('APP_URL')}}images/Proyección Social - Fondo blanco.png" alt="cun-logo-proyeccion" width="200">
     </div>
     @if($logo==null)
     @else
     <div class="text-center div-img-center" >
-      <img src="{{env('APP_URL')}}images/aliados/{{$logo}}.png" alt="cun-logo-proyeccion" width="175">
+      <img src="{{env('APP_URL')}}images/aliados/{{$logo}}.png" alt="cun-logo-proyeccion" width="200">
     </div>
     @endif
     <div class="div-img-right">
