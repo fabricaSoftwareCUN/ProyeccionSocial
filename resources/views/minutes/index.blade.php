@@ -79,6 +79,9 @@
                                 <a class="sombra btn btn-sm btn-info" onclick="mostrar()" href="{{route('printMinutes', $load->Acta_cierre)}}">
                                   <i class="bi bi-eye"></i>
                                 </a>
+                                <a class="sombra btn btn-sm btn-danger" onclick="mostrar()" href="{{route('deleteMinutes', $load->Acta_cierre)}}">
+                                  <i class="bi bi-trash"></i>
+                                </a>
                               </div>
                             </td>
                           </tr>

@@ -37,5 +37,6 @@ Route::middleware([
   Route::post('load', [LoadController::class, 'load'])->name('load');
   Route::get('/minutes', [LoadController::class, 'minutes'])->name('minutes');
   Route::get('/printMinutes/{Acta_cierre?}', [LoadController::class, 'printMinutes'])->name('printMinutes');
+  Route::get('/deleteMinutes/{Acta_cierre?}', [LoadController::class, 'deleteMinutes'])->name('deleteMinutes');
   Route::get('export', [LoadController::class, 'export'])->name('export');
 });

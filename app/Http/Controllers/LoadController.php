@@ -117,6 +117,23 @@ class LoadController extends Controller
     $pdf->setPaper('A4');
     return $pdf->stream("Acta de cierre - " . $reports->Acta_cierre . '.pdf');
   }
+  /**
+   * Generates the preview of the closing act
+   *
+   * @return PDF
+   */
+  public function deleteMinutes($Acta_cierre)
+  {
+    try {
+      $deleted = DB::table('loads')->where('Acta_cierre', '=', $Acta_cierre)->delete();
+      $minutes = Load::distinct()->select('Acta_cierre', 'Nombre_producto', 'created_at')->orderByDesc('Acta_cierre')->get()->unique('Acta_cierre');
+    } catch (\Throwable $th) {
+      return view('minutes.index', compact('minutes'));
+      // return redirect()->route('minutes.index')->dangerBanner('No pude eliminar el acta de cierre, revisar por que: ' . $th->getMessage());
+    }
+    return view('minutes.index', compact('minutes'));
+    // return redirect()->route('minutes.index')->banner('Acta eliminada exitosamente!.');
+  }
 
   /**
    * Show the form for creating a new resource.
@@ -152,27 +169,20 @@ class LoadController extends Controller
     $Code = str_pad($code, 5, "0", STR_PAD_LEFT);
 
     $affected = DB::table('loads')->where('Acta_cierre', null)->update(['Acta_cierre' => $Code]);
-
-    // if ($affected == 0) {
-    //   Log::error($affected . " registros actualizados en tabla loads");
-    //   // return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->dangerBanner('No pude cargar ningun registro nuevo, favor verificar.');
-    // } else {
-    //   Log::info($affected . " registros actualizados en tabla loads");
-    //   // return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Registros cargados exitosamente.');
-    // }
+    Log::error($affected . " registros actualizados en tabla loads");
 
     // AQUI SE EXTRAE LA INFROMACION DE LA TABLA PARA TRAER LOS CAMPOS EMAIL,NOMBRE,CURSO,FECHAINICIAL,FECHAFINAL.
     $receivers = DB::table('loads')->select('Email')->where('Acta_cierre', $Code)->get();
     $copies = $receivers->pluck('Email');
     try {
-      Mail::bcc($copies)->send(new LoadMailable());
+      // Mail::bcc($copies)->send(new LoadMailable());
       // return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Registros cargados y correo enviado exitosamente.');
     } catch (\Throwable $th) {
       return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->dangerBanner('Email no se envio, verificar!.' . $th->getMessage());
     }
     return $this->printMinutes($code);
 
-    return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Acta generada exitosamente!.');
+    // return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Acta generada exitosamente!.');
   }
 
   /**
