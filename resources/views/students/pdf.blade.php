@@ -94,7 +94,11 @@
             <div class="img-firma">
               <img src="{{env('APP_URL')}}images/firmas/firma-liliana.png" alt="Firma digital">
             </div>
-            Firma
+            <div style="font-size:14px;">
+              <strong>{{__('nombreFirmaA')}}</strong>
+              <br>{{__('cargoFirmaA')}} de
+              <br>{{__('areaFirmaA')}}
+            </div>
           </div>
         </div>
         @endif
