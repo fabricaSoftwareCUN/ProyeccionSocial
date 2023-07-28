@@ -17,9 +17,9 @@ body, html {
 }
 
 .nombre {
-  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Homemade Apple', cursive !important;
   font-style: italic;
-  font-size: 36px;
+  font-size: 38px;
   text-decoration: underline;
 }
 
