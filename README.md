@@ -19,7 +19,8 @@ Para clonar el repositorio e instalarlo en produccion o pruebas se deben tener e
   cp .env.example .env
   ```
 - [Generar llave de aplicacion para que no de error](#).
-- **[php artisan key:generate](#)**
+  ```bash
+  php artisan key:generate
 - [Generar enlace simbolico de storage para poder manipular imagenes de usuario logueado](#).
 - **[php artisan storage:link](#)**
 - [Crear carpeta para las fuentes que maneja la plataforma](#).
