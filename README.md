@@ -1,17 +1,9 @@
-```bash
-cd \
-copy a b
-ping 192.168.0.1
-```
-
 ## Comandos para clonar plataforma de Cursos Certificados 
 
 Para clonar el repositorio e instalarlo en produccion o pruebas se deben tener en cuenta los siguientes comandos:
 
 - [Clonar el repositorio](#).
-  ```bash
-  https://github.com/MORJAN-CUN/CursosCertificados.git
-  ```
+  ```bash  https://github.com/MORJAN-CUN/CursosCertificados.git  ```
 - [Intalar dependencias del proyecto composer](#).
 - **[composer install](#)**
 - [Intalar dependencias del proyecto npm](#).
