@@ -19,7 +19,7 @@ Para clonar el repositorio e instalarlo en produccion o pruebas se deben tener e
   php artisan key:generate
 - [Generar enlace simbolico de storage para poder manipular imagenes de usuario logueado](#).
   ```bash
-  **[php artisan storage:link](#)**
+  php artisan storage:link
 - [Crear carpeta para las fuentes que maneja la plataforma](#).
 - **[public/storage/fonts](#)**
 - [Cambiar ruta de acceso en archivo de certificados.css a produccion](#).
