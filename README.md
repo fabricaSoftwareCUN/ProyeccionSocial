@@ -24,19 +24,16 @@ Para clonar el repositorio e instalarlo en produccion o pruebas se deben tener e
   ```bash
   public/storage/fonts
 - [Cambiar ruta de acceso en archivo de certificados.css a produccion](#).
-- Quitar la regla cel css body, html {}](#)**
   ```bash
   background-image: url('http://localhost/ProyeccionSocial/public/images/certificados/fondo-certificado.png') !important;
-  ```bash
-  Poner la regla cel css body, html {}
-  ```bash
-  https://proyeccionsocial.cunapp.dev/images/certificados/fondo-certificado.png
+
+  https://proyeccionsocial.cunapp.dev/images/certificados/fondo-certificado.png 
 - [Asignar credenciales de conexion a la DB, usuario y contraseña, en archivo .env ](#).
   ```bash
   DB_DATABASE=Database name
-  ```bash
+  
   DB_USERNAME=user database name
-  ```bash
+  
   DB_PASSWORD=password database name
 - [Ejecutar migraciones de la base de datos para que se ejecuten las tabla del proyecto ](#).
   ```bash
