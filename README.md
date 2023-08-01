@@ -5,7 +5,7 @@ Para clonar el repositorio e instalarlo en produccion o pruebas se deben tener e
 - [Clonar el repositorio](#).
   ```bash  https://github.com/MORJAN-CUN/CursosCertificados.git  ```
 - [Intalar dependencias del proyecto composer](#).
-- **[composer install](#)**
+```bash composer install```
 - [Intalar dependencias del proyecto npm](#).
 - **[npm install](#)**
 - [crear archivo .env a partir del archivo de ejemplo](#).
