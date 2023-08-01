@@ -11,7 +11,10 @@ Para clonar el repositorio e instalarlo en produccion o pruebas se deben tener e
   composer install
   ```
 - [Intalar dependencias del proyecto npm](#).
-- **[npm install](#)**
+  ```bash
+  ![Uploading image.png…]()
+  ```
+npm install](#)**
 - [crear archivo .env a partir del archivo de ejemplo](#).
 - **[cp .env.example .env](#)**
 - [Generar llave de aplicacion para que no de error](#).
