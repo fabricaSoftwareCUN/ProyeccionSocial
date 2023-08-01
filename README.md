@@ -12,11 +12,12 @@ Para clonar el repositorio e instalarlo en produccion o pruebas se deben tener e
   ```
 - [Intalar dependencias del proyecto npm](#).
   ```bash
-  ![Uploading image.png…]()
+  npm install
   ```
-npm install](#)**
 - [crear archivo .env a partir del archivo de ejemplo](#).
-- **[cp .env.example .env](#)**
+  ```bash
+  cp .env.example .env
+  ```
 - [Generar llave de aplicacion para que no de error](#).
 - **[php artisan key:generate](#)**
 - [Generar enlace simbolico de storage para poder manipular imagenes de usuario logueado](#).
