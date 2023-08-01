@@ -1,3 +1,9 @@
+```bat
+cd \
+copy a b
+ping 192.168.0.1
+```
+
 ## Comandos para clonar plataforma de Cursos Certificados 
 
 Para clonar el repositorio e instalarlo en produccion o pruebas se deben tener en cuenta los siguientes comandos:
