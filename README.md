@@ -1,4 +1,4 @@
-```bat
+```bash
 cd \
 copy a b
 ping 192.168.0.1
