@@ -2,7 +2,6 @@
 
 Para clonar el repositorio e instalarlo en produccion o pruebas se deben tener en cuenta los siguientes comandos:
 
-```bash git clone https://github.com/fabricaSoftwareCUN/apiFinanciera.git ```
 - [Clonar el repositorio](#).
 - **bash[https://github.com/MORJAN-CUN/CursosCertificados.git](#)**
 - [Intalar dependencias del proyecto composer](#).
