@@ -5,24 +5,21 @@ Para clonar el repositorio e instalarlo en produccion o pruebas se deben tener e
 - [Clonar el repositorio](#).
   ```bash
   https://github.com/MORJAN-CUN/CursosCertificados.git
-  ```
 - [Intalar dependencias del proyecto composer](#).
   ```bash
   composer install
-  ```
 - [Intalar dependencias del proyecto npm](#).
   ```bash
   npm install
-  ```
 - [crear archivo .env a partir del archivo de ejemplo](#).
   ```bash
   cp .env.example .env
-  ```
 - [Generar llave de aplicacion para que no de error](#).
   ```bash
   php artisan key:generate
 - [Generar enlace simbolico de storage para poder manipular imagenes de usuario logueado](#).
-- **[php artisan storage:link](#)**
+  ```bash
+  **[php artisan storage:link](#)**
 - [Crear carpeta para las fuentes que maneja la plataforma](#).
 - **[public/storage/fonts](#)**
 - [Cambiar ruta de acceso en archivo de certificados.css a produccion](#).
