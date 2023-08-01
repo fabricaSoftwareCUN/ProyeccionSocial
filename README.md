@@ -21,20 +21,29 @@ Para clonar el repositorio e instalarlo en produccion o pruebas se deben tener e
   ```bash
   php artisan storage:link
 - [Crear carpeta para las fuentes que maneja la plataforma](#).
-- **[public/storage/fonts](#)**
+  ```bash
+  public/storage/fonts
 - [Cambiar ruta de acceso en archivo de certificados.css a produccion](#).
-- **[Quitar la regla cel css body, html {}](#)**
-- **[background-image: url('http://localhost/ProyeccionSocial/public/images/certificados/fondo-certificado.png') !important;](#)**
-- **[Poner la regla cel css body, html {}](#)**
-- **[https://proyeccionsocial.cunapp.dev/images/certificados/fondo-certificado.png](#)**
+- Quitar la regla cel css body, html {}](#)**
+  ```bash
+  background-image: url('http://localhost/ProyeccionSocial/public/images/certificados/fondo-certificado.png') !important;
+  ```bash
+  Poner la regla cel css body, html {}
+  ```bash
+  https://proyeccionsocial.cunapp.dev/images/certificados/fondo-certificado.png
 - [Asignar credenciales de conexion a la DB, usuario y contraseña, en archivo .env ](#).
-- **[DB_DATABASE=Database name](#)**
-- **[DB_USERNAME=user database name](#)**
-- **[DB_PASSWORD=password database name](#)**
+  ```bash
+  DB_DATABASE=Database name
+  ```bash
+  DB_USERNAME=user database name
+  ```bash
+  DB_PASSWORD=password database name
 - [Ejecutar migraciones de la base de datos para que se ejecuten las tabla del proyecto ](#).
-- **[php artisan migrate](#)**
+  ```bash
+  php artisan migrate
 - [opcional ejecutar este comando si se cuenta con datos de prueba iniciales en la base de datos](#).
-- **[php artisan migrate --seed](#)**
+  ```bash
+  php artisan migrate --seed
 
 ## Propietarios de la plataforma
 
