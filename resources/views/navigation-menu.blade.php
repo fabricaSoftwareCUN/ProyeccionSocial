@@ -21,7 +21,7 @@
           <x-jet-nav-link href="{{ route('downloads.index') }}" :active="request()->routeIs('downloads.*')">
             {{ __('downloaded certificates') }}
           </x-jet-nav-link>
-          <x-jet-nav-link href="{{ route('minutes') }}" :active="request()->routeIs('minutes')">
+          <x-jet-nav-link href="{{ route('minutes.index') }}" :active="request()->routeIs('minutes.*')">
             {{ __('Closing act') }}
           </x-jet-nav-link>
         </div>
@@ -162,7 +162,7 @@
       <x-jet-responsive-nav-link href="{{ route('downloads.index') }}" :active="request()->routeIs('downloads.*')">
         {{ __('downloaded certificates') }}
       </x-jet-responsive-nav-link>
-      <x-jet-responsive-nav-link href="{{ route('minutes') }}" :active="request()->routeIs('minutes')">
+      <x-jet-responsive-nav-link href="{{ route('minutes.index') }}" :active="request()->routeIs('minutes.*')">
         {{ __('Closing act') }}
       </x-jet-responsive-nav-link>
     </div>

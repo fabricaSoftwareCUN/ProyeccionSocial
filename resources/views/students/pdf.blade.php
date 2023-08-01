@@ -25,8 +25,8 @@
     </div>
     @if($logo==null)
     @else
-    <div class="text-center div-img-center" >
-      <img src="{{env('APP_URL')}}images/aliados/{{$logo}}.png" alt="cun-logo-proyeccion" width="200">
+    <div class="text-center div-img-center">
+      <img src="{{env('APP_URL')}}images/aliados/{{$logo}}.png" alt="cun-logo-proyeccion" width="100">
     </div>
     @endif
     <div class="div-img-right">
@@ -92,12 +92,15 @@
           </div>
           <div class="firma02">
             <div class="img-firma">
-              <img src="{{env('APP_URL')}}images/firmas/firma-liliana.png" alt="Firma digital">
+              <img src="{{env('APP_URL')}}images/firmas/Fundación-ENOC.png" alt="Firma digital aliado">
             </div>
             <div style="font-size:14px;">
-              <strong>{{__('nombreFirmaA')}}</strong>
+              <strong>Elena Vergara</strong>
+              <br>Directora General  de
+              <br>Fundación ENOC
+              {{-- <strong>{{__('nombreFirmaA')}}</strong>
               <br>{{__('cargoFirmaA')}} de
-              <br>{{__('areaFirmaA')}}
+              <br>{{__('areaFirmaA')}} --}}
             </div>
           </div>
         </div>
