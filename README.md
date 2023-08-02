@@ -27,13 +27,11 @@ Para clonar el repositorio e instalarlo en produccion o pruebas se deben tener e
   ```bash
   background-image: url('http://localhost/ProyeccionSocial/public/images/certificados/fondo-certificado.png') !important;
 
-  https://proyeccionsocial.cunapp.dev/images/certificados/fondo-certificado.png 
+  background-image: url('https://proyeccionsocial.cunapp.dev/images/certificados/fondo-certificado.png ') !important;  
 - [Asignar credenciales de conexion a la DB, usuario y contraseña, en archivo .env ](#).
   ```bash
-  DB_DATABASE=Database name
-  
-  DB_USERNAME=user database name
-  
+  DB_DATABASE=Database name  
+  DB_USERNAME=user database name  
   DB_PASSWORD=password database name
 - [Ejecutar migraciones de la base de datos para que se ejecuten las tabla del proyecto ](#).
   ```bash
