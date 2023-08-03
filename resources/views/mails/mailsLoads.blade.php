@@ -252,9 +252,7 @@
           </p>
           <p>
             Si tienes alguna pregunta, no dudes en contactarnos al correo
-            <a href="#">
-              <strong>proyeccion_social@cun.edu.co</strong>
-            </a>
+            <strong>proyeccion_social@cun.edu.co</strong>
           </p>
           <p>
             ¡Siempre serás bienvenid@ a nuestras capacitaciones!
