@@ -39,7 +39,7 @@
         </div>
       </div>
       <div class="col-md-12 mt-2 texto">
-        La Coordinadora Nacional de Proyección Social de la Corporación Unificada Nacional
+        La Coordinación Nacional de Proyección Social de la Corporación Unificada Nacional
         de Educación Superior, se permite certificar que las personas que se
         relacionan a continuación asistieron y aprobaron {{$Tipo_producto_report}}
         <strong>{{$Nombre_producto_report}}</strong>; {{$fecha_realizado}}, en la ciudad de Sincelejo,

@@ -220,51 +220,55 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <p>
-                    Buen día,
-                </p>
-                <p>
-                    Estimado/a <strong>Estudiante</strong>,
-                </p>
-                <ul>
-                    <p>
-                        Desde la Coordinación Nacional de Proyección Social de la CUN,
-                        queremos agradecerte por tu participación.
-                    </p>
-                    <p>
-                        Nos complace informarte que tu certificación académica ya está disponible.
-                        Este certificado ha sido generado de acuerdo con las asistencias reportadas y con
-                        los datos proporcionados de tu parte en el formulario correspondiente.
-                        Felicitaciones por este logro en tu formación académica.
-                    </p>
-                    <p>
-                        Para acceder a tu certificado de asistencia, simplemente haz clic en el siguiente
-                        enlace:
-                        <a href="{{ env('APP_URL') }}consult">
-                            <strong>Dale Clik Aqui</strong>
-                        </a>.
-                        Te recomendamos descargar y guardar una copia electrónica
-                        de tu certificado para futuras referencias.
-                    </p>
-                    <p>
-                        Si tienes alguna pregunta, no dudes en contactarnos.
-                    </p>
-                    <p>
-                        ¡Gracias por formar parte de la comunidad de Proyección Social de la CUN!
-                    </p>
-                    <p>
-                        Cordialmente,
-                    </p>
-                    <p>
-                        Coordinación Nacional de Proyección Social CUN
-                    </p>
-                </ul>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p>
+          Buen día,
+        </p>
+        <p>
+          Estimad@ <strong>Participante</strong>,
+        </p>
+        <ul>
+          <p>
+            Desde la Coordinación Nacional de Proyección Social - CUN,
+            nos complace informarte que tu certificado ya está disponible.
+          </p>
+          <p>
+            Este certificado ha sido generado de acuerdo con las asistencias
+            reportadas y con los datos proporcionados de tu parte en el formulario
+            correspondiente.
+          </p>
+          <p>
+            ¡Felicitaciones por este logro en tu formación académica!.
+          </p>
+          <p>
+            Para acceder a tu certificado de asistencia, simplemente haz clic en el siguiente
+            enlace:
+            <a href="{{ env('APP_URL') }}consult">
+              <strong>Dale Clik Aqui</strong>
+            </a>.
+            Digita tu número de identificación y accede a descargar tu certificación.
+          </p>
+          <p>
+            Si tienes alguna pregunta, no dudes en contactarnos.
+          </p>
+          <p>
+            ¡Siempre serás bienvenid@ a nuestras capacitaciones!
+            <a href="https://cun.edu.co/somos-la-cun/proyeccion-social">
+              <strong>Encuentra nuestra oferta vigente aquí</strong>
+            </a>.
+          </p>
+          <p>
+            Cordialmente,
+          </p>
+          <p>
+            Coordinación Nacional de Proyección Social - CUN.
+          </p>
+        </ul>
+      </div>
     </div>
+  </div>
 </body>
 
 </html>
