@@ -251,7 +251,7 @@
             Digita tu número de identificación y accede a descargar tu certificación.
           </p>
           <p>
-            Si tienes alguna pregunta, no dudes en contactarnos en
+            Si tienes alguna pregunta, no dudes contactarnos en
             <a href="#">
               <strong>proyeccion_social@cun.edu.co</strong>
             </a>
