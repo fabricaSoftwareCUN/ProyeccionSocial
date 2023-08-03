@@ -21,12 +21,12 @@
 <body>
   <header>
     <div class="div-img-left">
-      <img src="{{env('APP_URL')}}images/Proyección Social - Fondo blanco.png" alt="cun-logo-proyeccion" width="200">
+      <img src="{{env('APP_URL')}}images/Proyección Social - Fondo blanco.png" alt="cun-logo-proyeccion" width="250">
     </div>
     @if($logo==null)
     @else
     <div class="text-center div-img-center">
-      <img src="{{env('APP_URL')}}images/aliados/{{$logo}}.png" alt="cun-logo-proyeccion" width="100">
+      <img src="{{env('APP_URL')}}images/aliados/{{$logo}}.png" alt="cun-logo-proyeccion" width="80">
     </div>
     @endif
     <div class="div-img-right">
