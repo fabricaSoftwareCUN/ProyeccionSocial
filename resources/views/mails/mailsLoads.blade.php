@@ -251,10 +251,10 @@
             Digita tu número de identificación y accede a descargar tu certificación.
           </p>
           <p>
-            Si tienes alguna pregunta, no dudes en contactarnos a
-            <a href="">
+            Si tienes alguna pregunta, no dudes en contactarnos en
+            <a href="#">
               <strong>proyeccion_social@cun.edu.co</strong>
-            </a>.
+            </a>
           </p>
           <p>
             ¡Siempre serás bienvenid@ a nuestras capacitaciones!
