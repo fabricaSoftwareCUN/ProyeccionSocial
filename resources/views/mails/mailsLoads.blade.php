@@ -246,12 +246,15 @@
             Para acceder a tu certificado de asistencia, simplemente haz clic en el siguiente
             enlace:
             <a href="{{ env('APP_URL') }}consult">
-              <strong>Dale Clik Aqui</strong>
+                <strong>Dale Clik Aqui</strong>
             </a>.
             Digita tu número de identificación y accede a descargar tu certificación.
           </p>
           <p>
-            Si tienes alguna pregunta, no dudes en contactarnos.
+            Si tienes alguna pregunta, no dudes en contactarnos a
+            <a href="">
+              <strong>proyeccion_social@cun.edu.co</strong>
+            </a>.
           </p>
           <p>
             ¡Siempre serás bienvenid@ a nuestras capacitaciones!
@@ -265,7 +268,7 @@
           <p>
             Coordinación Nacional de Proyección Social - CUN.
           </p>
-        </ul>
+          </ul>
       </div>
     </div>
   </div>
