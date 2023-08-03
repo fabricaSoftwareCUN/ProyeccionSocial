@@ -54,7 +54,7 @@
         <div class="col-md-12 mt-3">
           <b>
             Asistió y aprobó {{ Str::lower($tipo_producto) }}:<br>
-            <div class="mt-1"><b style="text-decoration: underline;">{{Str::title($nombre_producto)}}</b></div>
+            <div class="mt-1"><b style="text-decoration: underline;">{{$nombre_producto}}</b></div>
           </b>
         </div>
 

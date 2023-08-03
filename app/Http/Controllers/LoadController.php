@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\MinutesController;
 
 class LoadController extends Controller
 {
@@ -81,7 +82,7 @@ class LoadController extends Controller
       return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->dangerBanner('Email no se envio, verificar!.' . $th->getMessage());
     }
     $minuteController = new MinutesController();
-    return $minuteController::printMinutes($code);
+    return $minuteController->printMinutes($code);
 
     // return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Acta generada exitosamente!.');
   }
