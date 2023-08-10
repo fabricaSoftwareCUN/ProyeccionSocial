@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Load;
-use App\Models\rc;
 use Carbon\Carbon;
 use PDF;
 use Illuminate\Support\Facades\DB;
