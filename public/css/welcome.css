@@ -1,8 +1,8 @@
 html, body {
-  max-height: 100% !important;
-  background-image: url('../images/fondo-welcome.png') !important;
-  background-size: 88% auto !important;
-  background-repeat: no-repeat !important;
+  max-height: 100%;
+  background-image: url('../images/fondo-welcome.png');
+  background-size: 88% auto;
+  background-repeat: no-repeat;
 }
 
 .sombra {

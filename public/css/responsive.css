@@ -1,4 +1,11 @@
 @media (min-width: 10px) and (max-width: 640px) {
+  body, html {
+    background-color: #8fda00 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-image: radial-gradient(ellipse farthest-corner at 45px 30px, #fff 35%, rgba(255, 255, 255, 1) 10%, #8fda00 50%) !important;
+  }
+
   .content-general {
     width: 100%;
   }
