@@ -7,10 +7,10 @@
 
 
 body, html {
-  /* background-image: url('https://proyeccionsocial.cunapp.dev/images/certificados/fondo-certificado.png') !important; */
+  background-image: url('https://proyeccionsocial.cunapp.dev/images/certificados/fondo-certificado.png') !important;
   font-family: 'Montserrat', sans-serif;
   font-size: 22px;
-  background-image: url('http://localhost/ProyeccionSocial/public/images/certificados/fondo-certificado.png') !important;
+  /* background-image: url('http://localhost/ProyeccionSocial/public/images/certificados/fondo-certificado.png') !important; */
   background-size: 100% auto !important;
   margin: -0.1cm 0cm 0cm 0cm;
   background-repeat: no-repeat !important;
