@@ -105,11 +105,27 @@
           </div>
         </div>
         @endif
-        <div class="container mt-5">
+      </div>
+    </div>
+    <div class="mt-5">
+      <div class="footers">
+        <div class="footer00">
           <div class="card">
             <div class="card-footer">
-              <h2>{{ $consecutivo }}</h2>
+            {{-- <h2>{{ $consecutivo }}</h2> --}}
             </div>
+          </div>
+        </div>
+        <div class="footer01 text-center">
+          <div class="card">
+            <div class="card-footer">
+            <h2>{{ $consecutivo }}</h2>
+            </div>
+          </div>
+        </div>
+        <div class="footer02">
+          <div class="qr-code">
+            <a href="{{ $url_validate }}" target="_blank"><img src="data:image/svg+xml;base64, {!! base64_encode($qr) !!}" /></a>
           </div>
         </div>
       </div>
@@ -117,9 +133,7 @@
   </main>
 
   <footer>
-    <div class="text-center p-1 titulo">
-      <h5 style="color:rgba(0, 0, 0, 0)">{{ $consecutivo }}</h5>
-    </div>
+
   </footer>
 </body>
 

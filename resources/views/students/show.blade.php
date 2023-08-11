@@ -28,14 +28,8 @@
             </div> --}}
           @else
               <div class="card-header text-center">
-                Bienvenido/a a la plataforma de generación de certificados de Proyección Social de la CUN.
-                Aquí podrás acceder y descargar tus certificados de asistencia de los eventos en que has
-                participado. Además, podrás consultar el histórico de tus certificados anteriores.
-                Valoramos tu compromiso y participación en nuestras capacitaciones que contribuyen a tu
-                desarrollo personal y/o profesional.
-                Si tienes alguna pregunta o necesitas asistencia, no dudes en contactarnos en
-                proyeccion_social@cun.edu.co
-                ¡Gracias por ser parte de Proyección Social de la CUN!
+                Si tienes alguna pregunta o necesitas asistencia, no dudes en contactarnos al correo
+                <strong><a href="mailto:proyeccion_social@cun.edu.co">proyeccion_social@cun.edu.co</a></strong>
               </div>
               <div class="card-body">
                 <div class="row">

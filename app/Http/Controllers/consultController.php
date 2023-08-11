@@ -61,6 +61,7 @@ class consultController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
+
   public function printPDF($id)
   {
     $base = $_ENV['APP_URL'];
@@ -201,6 +202,13 @@ class consultController extends Controller
         " días del mes de " . $month . " del " . $year;
       }
     }
+
+    $url_validate = $base . "validateQr/" . $name . "/" . $document .  "/" . $date_realization . "/" . $consecutive;
+    // return $url_validate;
+    // DEFINMOS LAS CARACTERISTICAS DEL QR
+    $qr = QrCode::size(110)->backgroundColor(255, 255, 255, 100)->color(31, 41, 54)
+    ->margin(2)->generate($url_validate);
+
     $pdf = PDF::loadView(
       'students.pdf',
       compact(
@@ -216,6 +224,8 @@ class consultController extends Controller
         'ciudad_expedición',
         'firma',
         'logo',
+        'url_validate',
+        'qr',
         'Expedicion'
       )
     );
@@ -228,20 +238,22 @@ class consultController extends Controller
    *
    * @param  int  $id
    * @return \Illuminate\Http\Response
-   *public function validateQr(Request $request)
-   *{
-   *  $documentParam = $request->document;
-   *  $nameParam = $request->name;
-   *  $realizationParam = $request->date_realization;
-   *  $consParam = $request->consecutive;
-   *
-   *  $certifiedValidate = Download::where('document_number', $documentParam)
-   *  ->where('student_name', $nameParam)
-   *  ->where('date_realized', $realizationParam)
-   *  ->where('consecutive', $consParam)->get();
-   *  return view('students.validateQr', compact('certifiedValidate'));
-   * }
    */
+
+  public function validateQr(Request $request)
+  {
+    $documentParam = $request->document;
+    $nameParam = $request->name;
+    $realizationParam = $request->date_realization;
+    $consParam = $request->consecutive;
+
+    $certifiedValidate = Download::where('Numero_documento', $documentParam)
+      ->where('Nombre_completo_participante', $nameParam)
+      ->where('Fecha_inicial', $realizationParam)
+      ->where('Consecutivo', $consParam)->get();
+    return view('students.validateQr', compact('certifiedValidate'));
+  }
+
   /**
    * Show the form for editing the specified resource.
    *
