@@ -117,7 +117,7 @@ class consultController extends Controller
       // GENERAMOS PARAMETROS DE URL PARA EL QR CON LOS PARAMETROS DEL CERTIFICADO GENERADO
       // $name = $nombre_completo_participante;
       $document = $numero_documento;
-      $date_realization = $new->Consecutivo;
+      $date_realization = $new->Fecha_inicial;
       // FORMATEO LA FECHA DE EXPEDICION
       // $date = now()->locale('es');
       $day = $new->created_at->format('d');
@@ -203,7 +203,7 @@ class consultController extends Controller
       }
     }
 
-    $url_validate = $base . "validateQr/" . $name . "/" . $document .  "/" . $date_realization . "/" . $consecutive;
+    $url_validate = $base . "validateQr/" . $name . "/" . $document .  "/" . $date_realization . "/" . $consecutivo;
     // return $url_validate;
     // DEFINMOS LAS CARACTERISTICAS DEL QR
     $qr = QrCode::size(110)->backgroundColor(255, 255, 255, 100)->color(31, 41, 54)
