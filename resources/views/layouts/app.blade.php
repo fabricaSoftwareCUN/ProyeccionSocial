@@ -26,7 +26,6 @@
   <link rel="stylesheet" href="{{ asset('css/carga.css?V='.now()->format('H.s')) }}">
   @livewireStyles
   <!-- Scripts -->
-  {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 </head>
 
 <body class="font-sans antialiased" onbeforeunload="return ocultar()">

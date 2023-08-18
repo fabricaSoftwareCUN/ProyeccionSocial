@@ -107,9 +107,6 @@
               <div class="block px-4 py-2 text-xs">
                 {{ Auth::user()->name }}
               </div>
-              <!-- <div class="block px-4 py-2 text-xs text-gray-400">
-                {{ __('Manage Account') }}
-              </div> -->
 
               <x-jet-dropdown-link href="{{ route('profile.show') }}" style="background-color:rgb(230, 230, 230);">
                 {{ __('Profile') }}

@@ -19,13 +19,6 @@
                 </p>
               </h5>
             </div>
-            {{-- <div class="row text-center mx-auto">
-              <div class="col-sm-12 mb-2">
-                <a class="btn btn-danger sombra ml-1" href="https://servicioscun.zohodesk.com/portal/es/home" target="_blank" rel="noopener noreferrer">
-                  Centro de Asistencia - CUN
-                </a>
-              </div>
-            </div> --}}
           @else
               <div class="card-header text-center">
                 Si tienes alguna pregunta o necesitas asistencia, no dudes en contactarnos al correo

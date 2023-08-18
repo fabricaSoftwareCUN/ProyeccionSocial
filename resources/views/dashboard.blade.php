@@ -15,14 +15,14 @@
           {{__('Parrafo')}}
         </p>
         <p>
-          {{__('Enlace loads')}} <a href="{{route('loads.index')}}"><strong> Click Aquí</strong></a>
+          {{__('Enlace loads')}} <a href="{{route('loads.index')}}"><strong> Click Aquí.</strong></a>
         </p>
         <p>
-          {{__('Enlace downloads')}} <a href="{{route('downloads.index')}}"><strong> Click Aquí</strong></a>
+          {{__('Enlace downloads')}} <a href="{{route('downloads.index')}}"><strong> Click Aquí.</strong></a>
         </p>
-        {{-- <p>
-          Para generar reportes da clci <a href="#">Aquí.</a>
-        </p> --}}
+        <p>
+          {{__('Enlace Actas')}} <a href="{{route('minutes.index')}}"><strong> Click Aquí.</strong></a>
+        </p>
       </div>
     </div>
   </div>

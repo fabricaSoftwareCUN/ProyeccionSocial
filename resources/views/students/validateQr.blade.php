@@ -29,19 +29,7 @@
               <br><br>Cordialmente,
               <br>Coordinación Nacional de Proyección Social
             </div>
-              {{-- @foreach ($certifiedValidate as $item)
-                {{$item->email}}
-              @endforeach --}}
             @endif
-            {{-- <div class="flex justify-center sm:justify-center sm:pt-0">
-              <img class="sombra-inter-negro" src="{{ asset('images/logo-welcome.png') }}" alt="logo-cun" width="350">
-            </div> --}}
-            {{-- <div class="d-flex justify-content-center">
-              <form method="get" action="{{route('consult.show',$i=0)}}">
-                <input type="text" class="form-control text-buscar" placeholder="Número de documento" name="documento" id="documento" required autofocus>
-                <input type="submit" class="sombra btn btn-secondary btn-buscar" value="{{__('Check')}}">
-              </form>
-            </div> --}}
           </div>
         </div>
       </div>

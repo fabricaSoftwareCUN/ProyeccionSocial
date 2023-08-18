@@ -15,16 +15,14 @@
                 <div class="card-header">
                   <div class="row">
                     <div class="col-md-8 py-2">
-                      index actas de cietre
+                      Actas de cierre generadas
                     </div>
                     <div class="col-md-4 flex-row-reverse"></div>
                   </div>
                 </div>
                 <div class="card-body">
                   <div class="row">
-                    <div class="col-md-8 mx-auto text-center">
-
-                    </div>
+                    <div class="col-md-8 mx-auto text-center"></div>
                   </div>
                 </div>
               </div>
@@ -34,18 +32,7 @@
                     <div class="col-md-6">
                         {{ __('Records loads in database') . ': ' . count($minutes) }}
                     </div>
-                    <div class="col-md-6">
-                      {{-- <form action="" method="get">
-                        <div class="form-row flex-row-reverse">
-                          <div class="col-md-4 my-1">
-                            <input type="submit" class="sombra btn btn-primary" value="Buscar">
-                          </div>
-                          <div class="col-auto my-1">
-                            <input type="text" class="form-control" name="texto" id="texto" value="{{ $texto }}">
-                          </div>
-                        </div>
-                      </form> --}}
-                    </div>
+                    <div class="col-md-6"></div>
                   </div>
                   <div class="table-responsive">
                     @if ($minutes->isEmpty())
@@ -60,7 +47,6 @@
                             <th>Acta de cierre</th>
                             <th>Nombre producto</th>
                             <th>Fecha de carga</th>
-                            {{-- <th>{{count($minutes)}}</th> --}}
                           </tr>
                         </thead>
                         <tbody>
@@ -94,9 +80,7 @@
                     @endif
                   </div>
                 </div>
-                <div class="card-footer">
-                  {{-- {{ $minutes->links() }} --}}
-                </div>
+                <div class="card-footer"></div>
               </div>
             </div>
           </div>

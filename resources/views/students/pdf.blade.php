@@ -98,9 +98,6 @@
               <strong>Elena Vergara</strong>
               <br>Directora General  de
               <br>Fundación ENOC
-              {{-- <strong>{{__('nombreFirmaA')}}</strong>
-              <br>{{__('cargoFirmaA')}} de
-              <br>{{__('areaFirmaA')}} --}}
             </div>
           </div>
         </div>
@@ -111,9 +108,7 @@
       <div class="footers">
         <div class="footer00">
           <div class="card">
-            <div class="card-footer">
-            {{-- <h2>{{ $consecutivo }}</h2> --}}
-            </div>
+            <div class="card-footer"></div>
           </div>
         </div>
         <div class="footer01 text-center">
@@ -131,10 +126,6 @@
       </div>
     </div>
   </main>
-
-  <footer>
-
-  </footer>
 </body>
 
 </html>

@@ -6,9 +6,6 @@
       <div class="col-md-6">
         <div class="relative flex items-top justify-center min-h-screen sm:items-center py-4 sm:pt-0">
           <div class="max-w-6xl mx-auto sm:px-1 lg:px-1">
-            {{-- <div class="flex justify-center titulo-welcome">
-              Certificados Cursos de Extensión
-            </div> --}}
             <div class="flex justify-center titulo-welcome">
               Consulta tus certificados.
             </div>
