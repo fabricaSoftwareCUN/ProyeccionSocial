@@ -21,8 +21,10 @@ Para clonar el repositorio e instalarlo en produccion o pruebas se deben tener e
   ```bash
   php artisan storage:link
 - [Crear carpeta para las fuentes que maneja la plataforma](#).
+  ruta: public/storage/fonts
   ```bash
-  public/storage/fonts
+  cd storage
+  mkdir fonts
 - [Cambiar ruta de acceso en archivo de certificados.css a produccion](#).
   ```bash
   background-image: url('http://localhost/ProyeccionSocial/public/images/certificados/fondo-certificado.png') !important;
