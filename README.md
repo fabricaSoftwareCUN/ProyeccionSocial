@@ -42,7 +42,7 @@ Para clonar el repositorio e instalarlo en produccion o pruebas se deben tener e
   ```bash
   php artisan migrate --seed
 
-## Propietarios de la plataforma xxxxx
+## Propietarios de la plataforma ProyeccionSocial
 
 Desde el área de Proyección social, realizan la solicitud de esta plataforma para la generación de los certificados para los diferentes cursos que realizan en esta área, siendo principal responsable la compañera Liliana Villamizar y su equipo.
 
