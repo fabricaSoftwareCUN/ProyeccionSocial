@@ -21,9 +21,9 @@
           <x-jet-nav-link href="{{ route('downloads.index') }}" :active="request()->routeIs('downloads.*')">
             {{ __('downloaded certificates') }}
           </x-jet-nav-link>
-          {{-- <x-jet-nav-link href="{{ route('reportes') }}" :active="request()->routeIs('reportes')">
-            {{ __('Reports') }}
-          </x-jet-nav-link> --}}
+          <x-jet-nav-link href="{{ route('minutes.index') }}" :active="request()->routeIs('minutes.*')">
+            {{ __('Closing act') }}
+          </x-jet-nav-link>
         </div>
       </div>
 
@@ -107,9 +107,6 @@
               <div class="block px-4 py-2 text-xs">
                 {{ Auth::user()->name }}
               </div>
-              <!-- <div class="block px-4 py-2 text-xs text-gray-400">
-                {{ __('Manage Account') }}
-              </div> -->
 
               <x-jet-dropdown-link href="{{ route('profile.show') }}" style="background-color:rgb(230, 230, 230);">
                 {{ __('Profile') }}
@@ -162,9 +159,9 @@
       <x-jet-responsive-nav-link href="{{ route('downloads.index') }}" :active="request()->routeIs('downloads.*')">
         {{ __('downloaded certificates') }}
       </x-jet-responsive-nav-link>
-      {{--<x-jet-responsive-nav-link href="{{ route('reportes') }}" :active="request()->routeIs('reportes')">
-        {{ __('Reports') }}
-      </x-jet-responsive-nav-link> --}}
+      <x-jet-responsive-nav-link href="{{ route('minutes.index') }}" :active="request()->routeIs('minutes.*')">
+        {{ __('Closing act') }}
+      </x-jet-responsive-nav-link>
     </div>
 
     <!-- Responsive Settings Options -->

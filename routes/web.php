@@ -3,7 +3,7 @@
 use App\Http\Controllers\consultController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\LoadController;
-use App\Http\Controllers\QrCodeController;
+use App\Http\Controllers\MinutesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +35,10 @@ Route::middleware([
   })->name('dashboard');
   Route::resource('/loads', LoadController::class);
   Route::resource('/downloads', DownloadController::class);
+  Route::resource('/minutes', MinutesController::class);
   Route::post('load', [LoadController::class, 'load'])->name('load');
-  // Route::get('printPDF', [LoadController::class, 'printPDF'])->name('printPDF');
+  // Route::get('/minutes', [LoadController::class, 'minutes'])->name('minutes');
+  Route::get('/printMinutes/{Acta_cierre?}', [MinutesController::class, 'printMinutes'])->name('printMinutes');
+  Route::get('/deleteMinutes/{Acta_cierre?}', [MinutesController::class, 'deleteMinutes'])->name('deleteMinutes');
+  Route::get('export', [LoadController::class, 'export'])->name('export');
 });

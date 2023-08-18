@@ -52,7 +52,7 @@ class consultController extends Controller
   public function show(Request $request)
   {
     $documento = $request->documento;
-    $studentCertificates = Load::where('numero_documento', $documento)->get();
+    $studentCertificates = Load::where('Numero_documento', $documento)->get();
     return view('students.show', compact('studentCertificates', 'documento'));
   }
   /**
@@ -61,126 +61,176 @@ class consultController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
+
   public function printPDF($id)
   {
+    $base = $_ENV['APP_URL'];
     // CAPTURAMOS INFORMACION DE CERTIFICADO SOLICITADO
     $new = Load::findOrFail($id);
     // VALIDAMOS QUE EL CERTIFICADO SOLICITADO NO SE HAYA CREADO ANTERIORMENTE
-    $cursoSolicitado = $new->nombre_producto;
-    $documentoSolicitado = $new->numero_documento;
-    $copy = Download::where([
-      ['product_name', '=', $cursoSolicitado],
-      ['document_number', '=', $documentoSolicitado],
+    $cursoSolicitado = $new->Nombre_producto;
+    $documentoSolicitado = $new->Numero_documento;
+    $consecutivoSolicitado = str_pad($new->id, 5, "0", STR_PAD_LEFT);
+    $copy = Download::where([['Nombre_producto', '=', $cursoSolicitado],
+      ['Numero_documento', '=', $documentoSolicitado],
+      ['Consecutivo', '=', $consecutivoSolicitado],
     ])->get();
-    $base = $_ENV['APP_URL'];
-
     if (count($copy) == 0) {
-      //DEFINIMOS VARIABLES GENERALES PARA EL REPORE
+      //DEFINIMOS VARIABLES GENERALES PARA EL REPORTE NUEVO
       $entro = "nuevo";
-      $document_type = $new->tipo_documento;
-      $product_name = $new->nombre_producto;
-      $duration = $new->duración;
-      $modality = $new->modalidad;
-      $city_expedition = $new->ciudad_expedición;
+      $consecutivo = str_pad($new->id, 5, "0", STR_PAD_LEFT);
+      $nombre_producto = $new->Nombre_producto;
+      $name = $new->Nombre_completo_participante;
+      $tipo_documento = $new->Tipo_documento;
+      $numero_documento = $new->Numero_documento;
+      $tipo_producto = $new->Tipo_producto;
+      $fecha_inicial = $new->Fecha_inicial;
+      $fecha_final = $new->Fecha_final;
+      $duración = $new->Duración;
+      $ciudad_expedición = $new->Ciudad_expedición;
+      $firma = $new->Firma_aliado;
+      $logo = $new->Logo_aliado;
+      $fecha_expedicion = $new->created_at->format('Y-m-d');
       $watermark = "Original";
-      // FORMATEAMOS FECHA REALIZACION DEL CURSO NUEVO
-      $day_r = Carbon::parse($new->fecha_realización)->format('d');
-      $dateMonth = Carbon::parse($new->fecha_realización)->locale('es');
-      $month_r = $dateMonth->monthName;
-      $year_r = Carbon::parse($new->fecha_realización)->format('Y');
+
+      if ($fecha_inicial == $fecha_final) {
+        // FORMATEAMOS FECHA UNICA DEL CURSO NUEVO
+        $day_i = Carbon::parse($fecha_inicial)->format('d');
+        $dateMonth = Carbon::parse($fecha_inicial)->locale('es');
+        $month_i = $dateMonth->monthName;
+        $year_i = Carbon::parse($fecha_inicial)->format('Y');
+        $fecha_realizado = "Realizada el " . $day_i . " de " . $month_i . " del " . $year_i;
+      } else {
+        // FORMATEAMOS FECHA INICIAL DEL CURSO NUEVO
+        $day_i = Carbon::parse($fecha_inicial)->format('d');
+        $dateMonth = Carbon::parse($fecha_inicial)->locale('es');
+        $month_i = $dateMonth->monthName;
+        $year_i = Carbon::parse($fecha_inicial)->format('Y');
+        // FORMATEAMOS FECHA FINAL DEL CURSO NUEVO
+        $day_f = Carbon::parse($fecha_final)->format('d');
+        $dateMonth = Carbon::parse($fecha_final)->locale('es');
+        $month_f = $dateMonth->monthName;
+        $year_f = Carbon::parse($fecha_final)->format('Y');
+        $fecha_realizado = "Realizada del " . $day_i . " de " . $month_i . " del " . $year_i .
+        " al " . $day_f . " de " . $month_f . " del " . $year_f;
+      }
       // GENERAMOS PARAMETROS DE URL PARA EL QR CON LOS PARAMETROS DEL CERTIFICADO GENERADO
-      $name = $new->nombre_estudiante;
-      $document = $new->numero_documento;
-      $date_realization = $new->fecha_realización;
-      //CREAMOS CONSECUTIVO DEL CERTIFICADO NUEVO
-      $consecutive = now()->format('Ym') . $id;
-      // GENERAMOS LA FECHA DE EXPEDICION SI ES UN CERTIFICADO NUEVO
-      $date = now()->locale('es');
-      $day = now()->format('d');
+      // $name = $nombre_completo_participante;
+      $document = $numero_documento;
+      $date_realization = $new->Fecha_inicial;
+      // FORMATEO LA FECHA DE EXPEDICION
+      // $date = now()->locale('es');
+      $day = $new->created_at->format('d');
+      $date = $new->created_at->locale('es');
       $month = $date->monthName;
-      $year = now()->format('Y');
+      $year = $new->created_at->format('Y');
+      $Expedicion = "Expedido en la ciudad de " . $ciudad_expedición . ", a los " . $day .
+      " días del mes de " . $month . " del " . $year;
+
       // DEFINIMOS LA INSERCION A LA BASE DE DATOS EN LA TABALA DOWNLOADS
       $insertCertificate = new Download();
-      $insertCertificate->student_name = $new->nombre_estudiante;
-      $insertCertificate->participant_type = $new->tipo_participante;
-      $insertCertificate->email = $new->email;
-      $insertCertificate->document_type = $new->tipo_documento;
-      $insertCertificate->document_number = $new->numero_documento;
-      $insertCertificate->product_name = $new->nombre_producto;
-      $insertCertificate->date_realized = $new->fecha_realización;
-      $insertCertificate->duration = $new->duración;
-      $insertCertificate->modality = $new->modalidad;
-      $insertCertificate->city_expedition = $new->ciudad_expedición;
-      $insertCertificate->consecutive = $consecutive;
-      $insertCertificate->download_date = now()->format('Y-m-d');
+      $insertCertificate->Consecutivo = $consecutivo;
+      $insertCertificate->Nombre_producto = $nombre_producto;
+      $insertCertificate->Nombre_completo_participante = $name;
+      $insertCertificate->Tipo_documento = $tipo_documento;
+      $insertCertificate->Numero_documento = $numero_documento;
+      $insertCertificate->Tipo_producto = $tipo_producto;
+      $insertCertificate->Fecha_inicial = $fecha_inicial;
+      $insertCertificate->Fecha_final = $fecha_final;
+      $insertCertificate->Duración = $duración;
+      $insertCertificate->Ciudad_expedición = $ciudad_expedición;
+      $insertCertificate->Firma_aliado = $firma;
+      $insertCertificate->Logo_aliado = $logo;
+      $insertCertificate->Fecha_descarga = now()->format('Y-m-d');
+      // EJECUTAMOS INSERTEN LA BASE DE DATOS
       try {
         $insertCertificate->save();
       } catch (\Throwable $th) {
+        // CAPTURAMOS ERROR AL INSERTAR
         return $th->getMessage();
       }
     } else {
-      //DEFINIMOS VARIABLES GENERALES PARA EL REPORE
-      $entro = "copia";
+      //DEFINIMOS VARIABLES GENERALES PARA EL REPORTE COPIA
       foreach ($copy as $key) {
         $watermark = "Copia";
-        $document_type = $key->document_type;
-        $product_name = $key->product_name;
-        $duration = $key->duration;
-        $modality = $key->modality;
-        $city_expedition = $key->city_expedition;
-        // FORMATEAMOS FECHA REALIZACION DEL CURSO COPIA
-        $day_r = Carbon::parse($key->date_realized)->format('d');
-        $dateMonth = Carbon::parse($key->date_realized)->locale('es');
-        $month_r = $dateMonth->monthName;
-        $year_r = Carbon::parse($key->date_realized)->format('Y');
+        $consecutivo = $key->Consecutivo;
+        $nombre_producto = $key->Nombre_producto;
+        $nombre_completo_participante = $key->Nombre_completo_participante;
+        $tipo_documento = $key->Tipo_documento;
+        $numero_documento = $key->Numero_documento;
+        $tipo_producto = $key->Tipo_producto;
+        $fecha_inicial = $key->Fecha_inicial;
+        $fecha_final = $key->Fecha_final;
+        $duración = $key->Duración;
+        $ciudad_expedición = $key->Ciudad_expedición;
+        $firma = $key->Firma_aliado;
+        $logo = $key->Logo_aliado;
+        $fecha_descarga = $key->Fecha_descarga;
+        if ($key->Fecha_inicial == $key->Fecha_final) {
+          // FORMATEAMOS FECHA UNICA DEL CURSO NUEVO
+          $day_i = Carbon::parse($key->Fecha_inicial)->format('d');
+          $dateMonth = Carbon::parse($key->Fecha_inicial)->locale('es');
+          $month_i = $dateMonth->monthName;
+          $year_i = Carbon::parse($key->Fecha_inicial)->format('Y');
+          $fecha_realizado = "Realizada el " . $day_i . " de " . $month_i . " del " . $year_i;
+        } else {
+          // FORMATEAMOS FECHA INICIAL DEL CURSO NUEVO
+          $day_i = Carbon::parse($key->Fecha_inicial)->format('d');
+          $dateMonth = Carbon::parse($key->Fecha_inicial)->locale('es');
+          $month_i = $dateMonth->monthName;
+          $year_i = Carbon::parse($key->Fecha_inicial)->format('Y');
+          // FORMATEAMOS FECHA FINAL DEL CURSO NUEVO
+          $day_f = Carbon::parse($key->Fecha_final)->format('d');
+          $dateMonth = Carbon::parse($key->Fecha_final)->locale('es');
+          $month_f = $dateMonth->monthName;
+          $year_f = Carbon::parse($key->Fecha_final)->format('Y');
+          $fecha_realizado = "Realizada del " . $day_i . " de " . $month_i . " del " . $year_i .
+            " al " . $day_f . " de " . $month_f . " del " . $year_f;
+        }
         // GENERAMOS PARAMETROS DE URL PARA EL QR CON LOS PARAMETROS DEL CERTIFICADO GENERADO
-        $name = $key->student_name;
-        $document = $key->document_number;
-        $date_realization = $key->date_realized;
-        //COPIAMOS CONSECUTIVO DEL CERTIFICADO NUEVO
-        $consecutive = $key->consecutive;
-        // GENERAMOS LA FECHA DE EXPEDICION SI ES UN CERTIFICADO NUEVO
-        $day = Carbon::parse($key->download_date)->format('d');
-        $date = Carbon::parse($key->download_date)->locale('es');
+        $name = $key->Nombre_completo_participante;
+        $document = $key->Numero_documento;
+        $date_realization = $key->Fecha_inicial;
+        $consecutive = $key->Consecutivo;
+        // FORMATEO LA FECHA DE EXPEDICION
+        // $date = now()->locale('es');
+        $day = $new->created_at->format('d');
+        $date = $new->created_at->locale('es');
         $month = $date->monthName;
-        $year = Carbon::parse($key->download_date)->format('Y');
+        $year = $new->created_at->format('Y');
+        $Expedicion = "Expedido en la ciudad de " . $ciudad_expedición . ", a los " . $day .
+        " días del mes de " . $month . " del " . $year;
       }
     }
 
-    $url_validate = $base . "validateQr/" . $name . "/" . $document .  "/" . $date_realization . "/" . $consecutive;
+    $url_validate = $base . "validateQr/" . $name . "/" . $document .  "/" . $date_realization . "/" . $consecutivo;
+    // return $url_validate;
     // DEFINMOS LAS CARACTERISTICAS DEL QR
-    $qr = QrCode::size(110)->backgroundColor(255, 255, 255, 25)->color(31, 41, 54)
+    $qr = QrCode::size(110)->backgroundColor(255, 255, 255, 100)->color(31, 41, 54)
     ->margin(2)->generate($url_validate);
-    // PASAMOS LOS DEMAS PARAMETROS PARA GENERAR EL CERTIFICADO
-    $cons = now()->format('Ym');
+
     $pdf = PDF::loadView(
       'students.pdf',
       compact(
+        'watermark',
+        'consecutivo',
         'name',
-        'document',
-        'document_type',
-        'product_name',
-        'duration',
-        'modality',
-        'city_expedition',
-        'new',
-        'consecutive',
-        'day',
-        'month',
-        'year',
-        'qr',
-        'day_r',
-        'month_r',
-        'year_r',
+        'nombre_producto',
+        'numero_documento',
+        'tipo_documento',
+        'tipo_producto',
+        'fecha_realizado',
+        'duración',
+        'ciudad_expedición',
+        'firma',
+        'logo',
         'url_validate',
-        'watermark'
+        'qr',
+        'Expedicion'
       )
     );
     $pdf->setPaper('A4', 'landscape');
     return $pdf->download($name . "-" . $document . '.pdf');
-    // return "entro=>" . $entro . "<br>dia realizacion=>" . $day_r . "<br>mes realizacion=>" . $month_r . "<br>año realizacion=>" . $year_r . "<br>nombre estudiante=>" . $name
-    // . "<br>documento estudiante=>" . $document . "<br>fecha realizacion=>" . $date_realization . "<br>consecutivo=>" . $consecutive . "<br> url del qr=>" . $url_validate
-    // . "<br>dia expedicion=>" . $day . "<br>mes expedicion=>" . $month . "<br>años expedicion=>" . $year . "<br>document_type=>" . $document_type;
   }
 
   /**
@@ -189,6 +239,7 @@ class consultController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
+
   public function validateQr(Request $request)
   {
     $documentParam = $request->document;
@@ -196,13 +247,13 @@ class consultController extends Controller
     $realizationParam = $request->date_realization;
     $consParam = $request->consecutive;
 
-
-    $certifiedValidate = Download::where('document_number', $documentParam)
-      ->where('student_name', $nameParam)
-      ->where('date_realized', $realizationParam)
-    ->where('consecutive', $consParam)->get();
+    $certifiedValidate = Download::where('Numero_documento', $documentParam)
+      ->where('Nombre_completo_participante', $nameParam)
+      ->where('Fecha_inicial', $realizationParam)
+      ->where('Consecutivo', $consParam)->get();
     return view('students.validateQr', compact('certifiedValidate'));
   }
+
   /**
    * Show the form for editing the specified resource.
    *

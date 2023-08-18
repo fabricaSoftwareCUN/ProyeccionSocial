@@ -16,7 +16,6 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css?V='.now()->format('H.s')) }}">
         <link rel="stylesheet" href="{{ asset('css/login.css?V='.now()->format('H.s')) }}">
         <!-- Scripts -->
-        {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body>

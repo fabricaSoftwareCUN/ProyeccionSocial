@@ -19,14 +19,13 @@
   <!-- Styles -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ asset('css/app.css?V='.now()->format('H.s')) }}">
-  <link rel="stylesheet" href="{{ asset('css/saberPro.css?V='.now()->format('H.s')) }}">
+  <link rel="stylesheet" href="{{ asset('css/proSocial.css?V='.now()->format('H.s')) }}">
   <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css?V='.now()->format('H.s')) }}">
   <link rel="stylesheet" href="{{ asset('css/files.css?V='.now()->format('H.s')) }}">
   <link rel="stylesheet" href="{{ asset('css/inputs.css?V='.now()->format('H.s')) }}">
   <link rel="stylesheet" href="{{ asset('css/carga.css?V='.now()->format('H.s')) }}">
   @livewireStyles
   <!-- Scripts -->
-  {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 </head>
 
 <body class="font-sans antialiased" onbeforeunload="return ocultar()">
@@ -57,6 +56,7 @@
       var container_load = document.getElementById('container_load');
       container_load.style.visibility = 'hidden';
       container_load.style.opacity = '0';
+      document.getElementById('file').value="";
     }
 
     function mostrar() {

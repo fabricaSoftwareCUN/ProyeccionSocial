@@ -11,34 +11,41 @@ use Illuminate\Queue\SerializesModels;
 
 class LoadMailable extends Mailable
 {
-    use Queueable, SerializesModels;
+  use Queueable, SerializesModels;
 
-    public $nombre;
-    public $curso;
-    public $day_r,$month_r,$year_r;
-    
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct($nombre,$curso,$day_r,$month_r,$year_r)
-    {
-      $this->nombre = $nombre;
-      $this->curso = $curso;
-      $this->day_r = $day_r;
-      $this->month_r = $month_r;
-      $this->year_r = $year_r;
-    }
+  // public $nombre, $curso, $day_i, $month_i, $year_i, $day_f, $month_f, $year_f, $tipo_curso;
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
-    public function build()
-    {
-        return $this->subject('Tu certificado de asistencia está listo: ¡Accede ahora!')
-                    ->view('mails.mailsLoads');
-    }
+  /**
+   * Create a new message instance.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+
+  }
+  // public function __construct($nombre, $curso, $tipo_curso, $day_i, $month_i, $year_i, $day_f, $month_f, $year_f)
+  // {
+  //   $this->nombre = $nombre;
+  //   $this->curso = $curso;
+  //   $this->day_i = $day_i;
+  //   $this->day_f = $day_f;
+  //   $this->month_i = $month_i;
+  //   $this->month_f = $month_f;
+  //   $this->year_i = $year_i;
+  //   $this->year_f = $year_f;
+  //   $this->tipo_curso = $tipo_curso;
+  // }
+
+  /**
+   * Build the message.
+   *
+   * @return $this
+   */
+  public function build()
+  {
+    return $this->subject("Tu certificado de asistencia está listo: ¡Accede ahora!")
+    // ->view('mails.pruebas');
+    ->view('mails.mailsLoads');
+  }
 }
