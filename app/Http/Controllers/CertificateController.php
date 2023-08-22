@@ -185,12 +185,13 @@ class CertificateController extends Controller
           'Expedicion'
         )
       )->setPaper('A4', 'landscape')
-      ->save(public_path('pdf/') . $name . "-" . $document . '.pdf');
+      ->save(public_path('pdf/') . "certificado-" . $document . '.pdf');
     } catch (\Throwable $th) {
       return $th;
     }
     $path = public_path('pdf/') . "certificado-" . $document . '.pdf';
-    return redirect()->away('https://www.linkedin.com/shareArticle?url=' . $path);
+    return $path;
+    // return redirect()->away('https://www.linkedin.com/shareArticle?url=' . $path);
   }
 
   /**
