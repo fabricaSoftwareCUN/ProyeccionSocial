@@ -191,8 +191,8 @@ class CertificateController extends Controller
       return $th;
     }
     $path = env('APP_URL') . "pdf/certificado-" . $document . '.pdf';
-    return $path;
-    // return redirect()->away('https://www.linkedin.com/shareArticle?url=' . $path);
+    // return $path;
+    return redirect()->away('https://www.linkedin.com/shareArticle?url=' . $path);
   }
 
   /**
