@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\consultController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\LoadController;
@@ -23,6 +24,7 @@ Route::get('/', function () {
 
 Route::resource('/consult', consultController::class);
 Route::get('/printPDF/{id}', [consultController::class, 'printPDF'])->name('printPDF');
+Route::get('/printIMG/{id}', [CertificateController::class, 'printIMG'])->name('printIMG');
 Route::get('/validateQr/{name}/{document}/{date_realization}/{consecutive}', [consultController::class, 'validateQr'])->name('validateQr');
 
 Route::middleware([
