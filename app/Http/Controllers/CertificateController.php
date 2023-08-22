@@ -70,11 +70,9 @@ class CertificateController extends Controller
           " al " . $day_f . " de " . $month_f . " del " . $year_f;
       }
       // GENERAMOS PARAMETROS DE URL PARA EL QR CON LOS PARAMETROS DEL CERTIFICADO GENERADO
-      // $name = $nombre_completo_participante;
       $document = $numero_documento;
       $date_realization = $new->Fecha_inicial;
       // FORMATEO LA FECHA DE EXPEDICION
-      // $date = now()->locale('es');
       $day = $new->created_at->format('d');
       $date = $new->created_at->locale('es');
       $month = $date->monthName;
@@ -148,7 +146,6 @@ class CertificateController extends Controller
         $date_realization = $key->Fecha_inicial;
         $consecutive = $key->Consecutivo;
         // FORMATEO LA FECHA DE EXPEDICION
-        // $date = now()->locale('es');
         $day = $new->created_at->format('d');
         $date = $new->created_at->locale('es');
         $month = $date->monthName;
@@ -159,7 +156,6 @@ class CertificateController extends Controller
     }
 
     $url_validate = $base . "validateQr/" . $name . "/" . $document .  "/" . $date_realization . "/" . $consecutivo;
-    // return $url_validate;
     // DEFINMOS LAS CARACTERISTICAS DEL QR
     $qr = QrCode::size(110)->backgroundColor(255, 255, 255, 100)->color(31, 41, 54)
       ->margin(2)->generate($url_validate);
@@ -185,13 +181,11 @@ class CertificateController extends Controller
           'Expedicion'
         )
       )->setPaper('A4', 'landscape')
-        ->save(public_path('pdf/') . "certificado-" . $document . '.pdf');
-      // ->save(env('APP_URL') . "pdf/certificado-" . $document . '.pdf');
+      ->save(public_path('pdf/') . "certificado-" . $document . '.pdf');
     } catch (\Throwable $th) {
       return $th;
     }
     $path = env('APP_URL') . "pdf/certificado-" . $document . '.pdf';
-    // return $path;
     return redirect()->away('https://www.linkedin.com/shareArticle?url=' . $path);
   }
 
