@@ -11,7 +11,6 @@ class Load extends Model
 
   protected $fillable = [
     'Nombre_producto',
-    'Nombre_completo_participante',
     'Tipo_documento',
     'Numero_documento',
     'Tipo_producto',
@@ -21,6 +20,7 @@ class Load extends Model
     'Ciudad_expedición',
     'Firma_aliado',
     'Logo_aliado',
+    'Nombre_completo_participante',
     'Sexo',
     'Telefono',
     'Email',
@@ -30,6 +30,7 @@ class Load extends Model
     'Contenido_expuesto',
     'Presentacion_contenidos',
     'Mensaje_sugerencia',
+    'Estudiante_cunista',
     'Programa_academico',
     'Modalidad',
     'Sede',
