@@ -17,11 +17,7 @@ class LoadsImport implements ToModel, WithHeadingRow
    */
   public function model(array $row)
   {
-    return new Load([
-      'Nombre_producto' => $row['nombre_producto'],
-      'Nombre_completo_participante' => $row['nombre_completo_participante'],
-      'Tipo_documento' => $row['tipo_documento'],
-      'Numero_documento' => $row['numero_documento'],
+    return new Load(['Nombre_producto' => $row['nombre_producto'],
       'Tipo_producto' => $row['tipo_producto'],
       'Fecha_inicial' => $row['fecha_inicial'],
       'Fecha_final' => $row['fecha_final'],
@@ -29,6 +25,9 @@ class LoadsImport implements ToModel, WithHeadingRow
       'Ciudad_expedición' => $row['ciudad_expedicion'],
       'Firma_aliado' => $row['firma_aliado'],
       'Logo_aliado' => $row['logo_aliado'],
+      'Nombre_completo_participante' => $row['nombre_completo_participante'],
+      'Tipo_documento' => $row['tipo_documento'],
+      'Numero_documento' => $row['numero_documento'],
       'Sexo' => $row['sexo'],
       'Telefono' => $row['telefono'],
       'Email' => $row['email'],
@@ -38,6 +37,7 @@ class LoadsImport implements ToModel, WithHeadingRow
       'Contenido_expuesto' => $row['contenido_expuesto'],
       'Presentacion_contenidos' => $row['presentacion_contenidos'],
       'Mensaje_sugerencia' => $row['mensaje_sugerencia'],
+      'Estudiante_cunista' => $row['estudiante_cunista'],
       'Programa_academico' => $row['programa_academico'],
       'Modalidad' => $row['modalidad'],
       'Sede' => $row['sede'],
@@ -48,8 +48,6 @@ class LoadsImport implements ToModel, WithHeadingRow
       'Modalidad_docente' => $row['modalidad_docente'],
       'Colaborador' => $row['colaborador'],
       'Cargo_colaborador' => $row['cargo_colaborador'],
-      'Información_educativa' => $row['informacion_educativa'],
-      'Programa_interesado' => $row['programa_interesado'],
       'Asistencia' => $row['asistencia'],
     ]);
   }
