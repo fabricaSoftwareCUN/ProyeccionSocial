@@ -73,7 +73,7 @@ class LoadController extends Controller
     $receivers = DB::table('loads')->select('Email')->where('Acta_cierre', $Code)->get();
     $copies = $receivers->pluck('Email');
     try {
-      Mail::bcc($copies)->send(new LoadMailable());
+      // Mail::bcc($copies)->send(new LoadMailable());
       // return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Registros cargados y correo enviado exitosamente.');
     } catch (\Throwable $th) {
       return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->dangerBanner('Email no se envio, verificar!.' . $th->getMessage());

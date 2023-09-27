@@ -40,7 +40,6 @@ class MinutesController extends Controller
       ->select('Acta_cierre', 'Tipo_producto', 'Nombre_producto', 'Fecha_inicial', 'Fecha_final', 'Ciudad_expedición', 'Duración', 'created_at')
       ->where('Acta_cierre', $Acta_cierre)
       ->first();
-
     $Acta_cierre_report = $reports->Acta_cierre;
     $Tipo_producto_report = $reports->Tipo_producto;
     $Nombre_producto_report = $reports->Nombre_producto;
