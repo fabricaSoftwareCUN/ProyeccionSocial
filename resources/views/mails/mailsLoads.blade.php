@@ -224,9 +224,6 @@
     <div class="row">
       <div class="col-md-12">
         <p>
-          Buen día,
-        </p>
-        <p>
           Estimad@ <strong>Participante</strong>,
         </p>
         <ul>
@@ -238,7 +235,7 @@
             Para acceder a tu certificado de asistencia, simplemente haz clic en el siguiente
             enlace:
             <a href="{{ env('APP_URL') }}consult">
-                <strong>Dale Clik Aqui</strong>
+                <strong>Dale Clic Aquí</strong>
             </a>.
             Digita tu número de identificación y accede a descargar tu certificación.
           </p>
