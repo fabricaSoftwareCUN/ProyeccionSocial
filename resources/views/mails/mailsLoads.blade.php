@@ -231,16 +231,8 @@
         </p>
         <ul>
           <p>
-            Desde la Coordinación Nacional de Proyección Social - CUN,
-            nos complace informarte que tu certificado ya está disponible.
-          </p>
-          <p>
-            Este certificado ha sido generado de acuerdo con las asistencias
-            reportadas y con los datos proporcionados de tu parte en el formulario
-            correspondiente.
-          </p>
-          <p>
-            ¡Felicitaciones por este logro en tu formación académica!.
+            Tu certificado ya está disponible; éste ha sido generado de acuerdo con las asistencias
+            reportadas y con los datos proporcionados de tu parte en el formulario correspondiente.
           </p>
           <p>
             Para acceder a tu certificado de asistencia, simplemente haz clic en el siguiente
