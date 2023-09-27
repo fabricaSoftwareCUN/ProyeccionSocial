@@ -224,20 +224,22 @@
     <div class="row">
       <div class="col-md-12">
         <p>
-          Estimad@ <strong>Participante</strong>,
+          <strong>Estimad@ Participante</strong>,
         </p>
         <ul>
           <p>
-            Tu certificado ya está disponible; éste ha sido generado de acuerdo con las asistencias
-            reportadas y con los datos proporcionados de tu parte en el formulario correspondiente.
+            Para acceder a tu certificado, haz clic en el siguiente enlace:
+            <a href="{{ env('APP_URL') }}consult">
+                <strong>Clic Aquí</strong>
+            </a>. Digita tu número de identificación y podrás descargarlo.
           </p>
           <p>
-            Para acceder a tu certificado de asistencia, simplemente haz clic en el siguiente
-            enlace:
-            <a href="{{ env('APP_URL') }}consult">
-                <strong>Dale Clic Aquí</strong>
-            </a>.
-            Digita tu número de identificación y accede a descargar tu certificación.
+            Éste ha sido generado de acuerdo con las asistencias reportadas y con los datos
+            proporcionados de tu parte.
+          </p>
+          <p>
+            Para confirmar la validez de tu certificado, escaneas el código QR con la cámara
+            del celular o la aplicación de Google Lens.
           </p>
           <p>
             Si tienes alguna pregunta, no dudes en contactarnos al correo

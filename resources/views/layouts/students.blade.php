@@ -23,6 +23,9 @@
 </head>
 
 <body class="antialiased" onbeforeunload="return ocultar()">
+  <div id="container_load">
+    <div id="load"></div>
+  </div>
   <main>
     {{ $slot }}
   </main>

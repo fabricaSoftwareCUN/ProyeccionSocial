@@ -38,24 +38,24 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-lg-12 mt-4 titulo">
-          <b>
+          <strong>
             LA COORDINACIÓN NACIONAL DE PROYECCIÓN SOCIAL
-          </b>
+          </strong>
         </div>
         <div class="col-md-12 mt-3 subtitulo">
           CERTIFICA QUE:
         </div>
         <div class="col-md-12 mt-2 nombre">
-          <b>{{ Str::title($name) }}</b>
+          <strong>{{ Str::title($name) }}</strong>
         </div>
         <div class="col-md-12 mt-1">
           Identificado(a) con {{ Str::lower($tipo_documento) . '. No. ' . $numero_documento }}
         </div>
         <div class="col-md-12 mt-3">
-          <b>
-            Asistió y aprobó {{ Str::lower($tipo_producto) }}:<br>
-            <div class="mt-1"><b style="text-decoration: underline;">{{$nombre_producto}}</b></div>
-          </b>
+          Asistió y aprobó {{ Str::lower($tipo_producto) }}:<br>
+          <strong>
+            <div class="mt-3"><b style="text-decoration: underline;font-size:26px;">{{$nombre_producto}}</b></div>
+          </strong>
         </div>
 
         <div class="mt-2">{{$fecha_realizado}}
@@ -66,7 +66,7 @@
           {{$Expedicion}}
         </div>
         @if($firma==null)
-        <div class="mt-4 firmas">
+        <div class="mt-2 firmas">
           <div class="firma00">
             <div class="img-firma" >
               <img src="{{env('APP_URL')}}images/firmas/firma-liliana.png" alt="Firma digital">
@@ -79,12 +79,12 @@
           </div>
         </div>
         @else
-        <div class="firmas mt-4">
+        <div class="firmas mt-2">
           <div class="firma01">
             <div class="img-firma" >
               <img src="{{env('APP_URL')}}images/firmas/firma-liliana.png" alt="Firma digital">
             </div>
-            <div style="font-size:14px;">
+            <div style="font-size:14px;>
               <strong>{{__('nombreFirmaA')}}</strong>
               <br>{{__('cargoFirmaA')}} de
               <br>{{__('areaFirmaA')}}
