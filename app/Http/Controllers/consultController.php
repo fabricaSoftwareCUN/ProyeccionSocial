@@ -233,7 +233,7 @@ class consultController extends Controller
       )
     );
     $pdf->setPaper('A4', 'landscape');
-    return $pdf->download($name . "-" . $document . '.pdf');
+    return $pdf->stream($name . "-" . $document . '.pdf');
   }
 
   /**

@@ -82,20 +82,20 @@
             <div class="img-firma" >
               <img src="{{env('APP_URL')}}images/firmas/firma-liliana.png" alt="Firma digital">
             </div>
-            <div style="font-size:14px;>
+            <div style="font-size:14px;">
               <strong>{{__('nombreFirmaA')}}</strong>
               <br>{{__('cargoFirmaA')}} de
               <br>{{__('areaFirmaA')}}
             </div>
           </div>
           <div class="firma02">
-            <div class="img-firma">
-              <img src="{{env('APP_URL')}}images/firmas/Fundación-ENOC.png" alt="Firma digital aliado">
+            <div class="img-firma" >
+              <img src="{{env('APP_URL')}}images/firmas/Prueba logo firma aliado.png" alt="Firma digital aliado">
             </div>
             <div style="font-size:14px;">
-              <strong>Elena Vergara</strong>
-              <br>Directora General  de
-              <br>Fundación ENOC
+              <strong>Ruby Cogollo Berrocal</strong>
+              <br>Secretaría de Salud
+              {{-- <br>Fundación ENOC --}}
             </div>
           </div>
         </div>
