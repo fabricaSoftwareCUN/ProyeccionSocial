@@ -49,19 +49,17 @@
           <strong>{{ Str::title($name) }}</strong>
         </div>
         <div class="col-md-12 mt-1">
-          Identificado(a) con {{ Str::lower($tipo_documento) . '. No. ' . $numero_documento }}
+          Identificado(a) con {{ Str::lower($tipo_documento) . '. No. ' . $numero_documento }}<br>
+          Asistió y aprobó {{ Str::lower($tipo_producto) }}:
         </div>
         <div class="col-md-12 mt-3">
-          Asistió y aprobó {{ Str::lower($tipo_producto) }}:<br>
           <strong>
-            <div class="mt-3"><b style="text-decoration: underline;font-size:26px;">{{$nombre_producto}}</b></div>
+            <div><strong style="text-decoration: underline;font-size:26px;">{{$nombre_producto}}</strong></div>
           </strong>
         </div>
-
         <div class="mt-2">{{$fecha_realizado}}
           <br>Con una intensidad de {{ $duración }} horas
         </div>
-
         <div class="col-md-12 mt-2 t3">
           {{$Expedicion}}
         </div>
