@@ -26,7 +26,7 @@
     @if($logo==null)
     @else
     <div class="text-center div-img-center">
-      <img src="{{env('APP_URL')}}images/aliados/{{$logo}}.png" alt="cun-logo-proyeccion" width="80">
+      <img src="{{env('APP_URL')}}images/aliados/{{$logo}}.png" alt="cun-logo-aliado" width="180">
     </div>
     @endif
     <div class="div-img-right">
