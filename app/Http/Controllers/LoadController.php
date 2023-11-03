@@ -71,7 +71,12 @@ class LoadController extends Controller
 
     // AQUI SE EXTRAE LA INFROMACION DE LA TABLA PARA TRAER LOS CAMPOS EMAIL,NOMBRE,CURSO,FECHAINICIAL,FECHAFINAL.
     $receivers = DB::table('loads')->select('Email')->where('Acta_cierre', $Code)->get();
-    $copies = $receivers->pluck('Email');
+    // $copies = $receivers->pluck('Email');
+    // $receivers = DB::table('loads')->select('Email')->get();
+    //GARANTISAMOS QE LOS CORREOS NO CONTENGAN ESPACIOS AL INICIO ENTRE Y EL FINAL DE LA CADENA
+    $copies = $receivers->pluck('Email')->map(function ($email) {
+      return str_replace(' ', '', trim($email));
+    });
     try {
       Mail::bcc($copies)->send(new LoadMailable());
       // return redirect()->route('loads.index', compact('loadscount', 'texto', 'loads'))->banner('Registros cargados y correo enviado exitosamente.');

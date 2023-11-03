@@ -251,9 +251,10 @@ class consultController extends Controller
     $consParam = $request->consecutive;
 
     $certifiedValidate = Download::where('Numero_documento', $documentParam)
-      ->where('Nombre_completo_participante', $nameParam)
+      ->where('Nombre_completo_participante','like', '%'.$nameParam.'%')
       ->where('Fecha_inicial', $realizationParam)
       ->where('Consecutivo', $consParam)->get();
+
     return view('students.validateQr', compact('certifiedValidate'));
   }
 
