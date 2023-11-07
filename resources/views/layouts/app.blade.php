@@ -21,7 +21,6 @@
   <link rel="stylesheet" href="{{ asset('css/app.css?V='.now()->format('H.s')) }}">
   <link rel="stylesheet" href="{{ asset('css/proSocial.css?V='.now()->format('H.s')) }}">
   <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css?V='.now()->format('H.s')) }}">
-  <link rel="stylesheet" href="{{ asset('css/files.css?V='.now()->format('H.s')) }}">
   <link rel="stylesheet" href="{{ asset('css/inputs.css?V='.now()->format('H.s')) }}">
   <link rel="stylesheet" href="{{ asset('css/carga.css?V='.now()->format('H.s')) }}">
   @livewireStyles
