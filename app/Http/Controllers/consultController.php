@@ -67,14 +67,23 @@ class consultController extends Controller
     $base = $_ENV['APP_URL'];
     // CAPTURAMOS INFORMACION DE CERTIFICADO SOLICITADO
     $new = Load::findOrFail($id);
+    $tipo_producto = explode(" ", $new->Tipo_producto);
+
+    if($tipo_producto[0] == "la"){
+      $textoRealizado = "Realizada";
+    }else{
+      $textoRealizado = "Realizado";
+    }
     // VALIDAMOS QUE EL CERTIFICADO SOLICITADO NO SE HAYA CREADO ANTERIORMENTE
     $cursoSolicitado = $new->Nombre_producto;
     $documentoSolicitado = $new->Numero_documento;
     $consecutivoSolicitado = str_pad($new->id, 5, "0", STR_PAD_LEFT);
+
     $copy = Download::where([['Nombre_producto', '=', $cursoSolicitado],
       ['Numero_documento', '=', $documentoSolicitado],
       ['Consecutivo', '=', $consecutivoSolicitado],
     ])->get();
+
     if (count($copy) == 0) {
       //DEFINIMOS VARIABLES GENERALES PARA EL REPORTE NUEVO
       $entro = "nuevo";
@@ -99,7 +108,8 @@ class consultController extends Controller
         $dateMonth = Carbon::parse($fecha_inicial)->locale('es');
         $month_i = $dateMonth->monthName;
         $year_i = Carbon::parse($fecha_inicial)->format('Y');
-        $fecha_realizado = "Realizada el " . $day_i . " de " . $month_i . " del " . $year_i;
+
+        $fecha_realizado = $textoRealizado." el " . $day_i . " de " . $month_i . " del " . $year_i;
       } else {
         // FORMATEAMOS FECHA INICIAL DEL CURSO NUEVO
         $day_i = Carbon::parse($fecha_inicial)->format('d');
@@ -111,7 +121,7 @@ class consultController extends Controller
         $dateMonth = Carbon::parse($fecha_final)->locale('es');
         $month_f = $dateMonth->monthName;
         $year_f = Carbon::parse($fecha_final)->format('Y');
-        $fecha_realizado = "Realizada del " . $day_i . " de " . $month_i . " del " . $year_i .
+        $fecha_realizado = $textoRealizado." del " . $day_i . " de " . $month_i . " del " . $year_i .
         " al " . $day_f . " de " . $month_f . " del " . $year_f;
       }
       // GENERAMOS PARAMETROS DE URL PARA EL QR CON LOS PARAMETROS DEL CERTIFICADO GENERADO
@@ -175,7 +185,7 @@ class consultController extends Controller
           $dateMonth = Carbon::parse($key->Fecha_inicial)->locale('es');
           $month_i = $dateMonth->monthName;
           $year_i = Carbon::parse($key->Fecha_inicial)->format('Y');
-          $fecha_realizado = "Realizada el " . $day_i . " de " . $month_i . " del " . $year_i;
+          $fecha_realizado = $textoRealizado." el " . $day_i . " de " . $month_i . " del " . $year_i;
         } else {
           // FORMATEAMOS FECHA INICIAL DEL CURSO NUEVO
           $day_i = Carbon::parse($key->Fecha_inicial)->format('d');
@@ -187,7 +197,7 @@ class consultController extends Controller
           $dateMonth = Carbon::parse($key->Fecha_final)->locale('es');
           $month_f = $dateMonth->monthName;
           $year_f = Carbon::parse($key->Fecha_final)->format('Y');
-          $fecha_realizado = "Realizada del " . $day_i . " de " . $month_i . " del " . $year_i .
+          $fecha_realizado = $textoRealizado." del " . $day_i . " de " . $month_i . " del " . $year_i .
             " al " . $day_f . " de " . $month_f . " del " . $year_f;
         }
         // GENERAMOS PARAMETROS DE URL PARA EL QR CON LOS PARAMETROS DEL CERTIFICADO GENERADO
