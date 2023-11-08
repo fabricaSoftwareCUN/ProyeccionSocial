@@ -224,31 +224,22 @@
     <div class="row">
       <div class="col-md-12">
         <p>
-          Buen día,
-        </p>
-        <p>
-          Estimad@ <strong>Participante</strong>,
+          <strong>Estimad@ Participante</strong>,
         </p>
         <ul>
           <p>
-            Desde la Coordinación Nacional de Proyección Social - CUN,
-            nos complace informarte que tu certificado ya está disponible.
-          </p>
-          <p>
-            Este certificado ha sido generado de acuerdo con las asistencias
-            reportadas y con los datos proporcionados de tu parte en el formulario
-            correspondiente.
-          </p>
-          <p>
-            ¡Felicitaciones por este logro en tu formación académica!.
-          </p>
-          <p>
-            Para acceder a tu certificado de asistencia, simplemente haz clic en el siguiente
-            enlace:
+            Para acceder a tu certificado, haz clic en el siguiente enlace:
             <a href="{{ env('APP_URL') }}consult">
-                <strong>Dale Clik Aqui</strong>
-            </a>.
-            Digita tu número de identificación y accede a descargar tu certificación.
+                <strong>Clic Aquí</strong>
+            </a>. Digita tu número de identificación y podrás descargarlo.
+          </p>
+          <p>
+            Éste ha sido generado de acuerdo con las asistencias reportadas y con los datos
+            proporcionados de tu parte.
+          </p>
+          <p>
+            Para confirmar la validez de tu certificado, escaneas el código QR con la cámara
+            del celular o la aplicación de Google Lens.
           </p>
           <p>
             Si tienes alguna pregunta, no dudes en contactarnos al correo
