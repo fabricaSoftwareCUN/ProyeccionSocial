@@ -49,7 +49,7 @@
                               <a class="sombra btn btn-info" href="#showModal{{ $item->id }}" data-bs-toggle="modal">
                                 <i class="bi bi-eye"></i>
                               </a>
-                              <a class="sombra btn btn-success" href="{{ route('printPDF', $item->id) }}">
+                              <a class="sombra btn btn-success" href="{{ route('printPDF', $item->id) }}" onclick="mostrar()">
                                 <i class="bi bi-file-earmark-pdf"></i>
                               </a>
                               <a class="sombra btn btn-warning" href="{{ route('printIMG', $item->id) }}">
