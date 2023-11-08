@@ -176,9 +176,7 @@ class consultController extends Controller
         $firma = $key->Firma_aliado;
         $logo = $key->Logo_aliado;
         $fecha_descarga = $key->Fecha_descarga;
-        /*
-        TODO:revisar la validacion de la y el
-        */
+
         if ($key->Fecha_inicial == $key->Fecha_final) {
           // FORMATEAMOS FECHA UNICA DEL CURSO NUEVO
           $day_i = Carbon::parse($key->Fecha_inicial)->format('d');
