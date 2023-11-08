@@ -1,6 +1,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
+            <th scope="col"><b>{{__('Consecutivo')}}</b></th>
             <th scope="col"><b>{{__('Acta_cierre')}}</b></th>
             <th scope="col"><b>{{__('Nombre_producto')}}</b></th>
             <th scope="col"><b>{{__('Tipo_producto')}}</b></th>
@@ -39,6 +40,7 @@
     <tbody>
         @foreach($loads as $load)
         <tr>
+            <td>{{$load->id}}</td>
             <td>{{$load->Acta_cierre}}</td>
             <td>{{$load->Nombre_producto}}</td>
             <td>{{$load->Tipo_producto}}</td>
