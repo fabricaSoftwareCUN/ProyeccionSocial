@@ -26,7 +26,7 @@
     @if($logo==null)
     @else
     <div class="text-center div-img-center">
-      <img src="{{env('APP_URL')}}images/aliados/{{$logo}}.png" alt="cun-logo-proyeccion" width="80">
+      <img src="{{env('APP_URL')}}images/aliados/{{$logo}}.png" alt="cun-logo-aliado" width="180">
     </div>
     @endif
     <div class="div-img-right">
@@ -38,35 +38,33 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-lg-12 mt-4 titulo">
-          <b>
+          <strong>
             LA COORDINACIÓN NACIONAL DE PROYECCIÓN SOCIAL
-          </b>
+          </strong>
         </div>
         <div class="col-md-12 mt-3 subtitulo">
           CERTIFICA QUE:
         </div>
         <div class="col-md-12 mt-2 nombre">
-          <b>{{ Str::title($name) }}</b>
+          <strong>{{ Str::title($name) }}</strong>
         </div>
         <div class="col-md-12 mt-1">
-          Identificado(a) con {{ Str::lower($tipo_documento) . '. No. ' . $numero_documento }}
+          Identificado(a) con {{ Str::lower($tipo_documento) . '. No. ' . $numero_documento }}<br>
+          Asistió y aprobó {{ Str::lower($tipo_producto) }}:
         </div>
         <div class="col-md-12 mt-3">
-          <b>
-            Asistió y aprobó {{ Str::lower($tipo_producto) }}:<br>
-            <div class="mt-1"><b style="text-decoration: underline;">{{$nombre_producto}}</b></div>
-          </b>
+          <strong>
+            <div><strong style="text-decoration: underline;font-size:26px;">{{$nombre_producto}}</strong></div>
+          </strong>
         </div>
-
         <div class="mt-2">{{$fecha_realizado}}
           <br>Con una intensidad de {{ $duración }} horas
         </div>
-
         <div class="col-md-12 mt-2 t3">
           {{$Expedicion}}
         </div>
         @if($firma==null)
-        <div class="mt-4 firmas">
+        <div class="mt-2 firmas">
           <div class="firma00">
             <div class="img-firma" >
               <img src="{{env('APP_URL')}}images/firmas/firma-liliana.png" alt="Firma digital">
@@ -79,7 +77,7 @@
           </div>
         </div>
         @else
-        <div class="firmas mt-4">
+        <div class="firmas mt-2">
           <div class="firma01">
             <div class="img-firma" >
               <img src="{{env('APP_URL')}}images/firmas/firma-liliana.png" alt="Firma digital">
@@ -91,13 +89,13 @@
             </div>
           </div>
           <div class="firma02">
-            <div class="img-firma">
-              <img src="{{env('APP_URL')}}images/firmas/Fundación-ENOC.png" alt="Firma digital aliado">
+            <div class="img-firma" >
+              <img src="{{env('APP_URL')}}images/firmas/Prueba logo firma aliado.png" alt="Firma digital aliado">
             </div>
             <div style="font-size:14px;">
-              <strong>Elena Vergara</strong>
-              <br>Directora General  de
-              <br>Fundación ENOC
+              <strong>Ruby Cogollo Berrocal</strong>
+              <br>Secretaría de Salud
+              {{-- <br>Fundación ENOC --}}
             </div>
           </div>
         </div>

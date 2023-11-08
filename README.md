@@ -32,9 +32,21 @@ Para clonar el repositorio e instalarlo en produccion o pruebas se deben tener e
   background-image: url('https://proyeccionsocial.cunapp.dev/images/certificados/fondo-certificado.png ') !important;  
 - [Asignar credenciales de conexion a la DB, usuario y contraseña, en archivo .env ](#).
   ```bash
+  APP_URL= https://proyeccionsocial.cunapp.dev/
   DB_DATABASE=Database name  
   DB_USERNAME=user database name  
   DB_PASSWORD=password database name
+- [Asignar credenciales de envio de correo, en archivo .env ](#).
+  ```bash
+  MAIL_MAILER= ya las tiene en el ejemplo
+  MAIL_HOST= ya las tiene en el ejemplo
+  MAIL_PORT= ya las tiene en el ejemplo
+  MAIL_USERNAME= ya las tiene en el ejemplo
+  MAIL_PASSWORD= ya las tiene en el ejemplo
+  MAIL_ENCRYPTION= ya las tiene en el ejemplo
+  MAIL_FROM_ADDRESS= ya las tiene en el ejemplo
+  MAIL_FROM_NAME= ya las tiene en el ejemplo
+
 - [Ejecutar migraciones de la base de datos para que se ejecuten las tabla del proyecto ](#).
   ```bash
   php artisan migrate

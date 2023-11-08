@@ -13,9 +13,9 @@
             <div class="justify-center" style="font-size:18px;">
               Hemos verificado el certificado que escaneaste a través del código QR y atentamente
               confirmamos que
-              <strong>este certificado no es válido pues no ha sido emitido por la CUN</strong>.
+              <strong>este certificado NO es válido pues no ha sido emitido por la CUN</strong>.
               <br>Si tienes alguna pregunta adicional o necesitas asistencia, no dudes en contactarnos
-              a través del correo de <strong>proyeccion_social@cun.edu.co</strong>.
+              a través del correo de <strong>proyeccion_social@cun.edu.co</strong>
               <br><br>Cordialmente,
               <br>Coordinación Nacional de Proyección Social
               </div>
@@ -25,7 +25,7 @@
               complace confirmar su autenticidad.
               <br><strong>Este certificado es válido y ha sido emitido por la CUN</strong>.
               <br>Si tienes alguna pregunta adicional o necesitas asistencia, no dudes en
-              contactarnos a través del correo <strong>proyeccion_social@cun.edu.co</strong>.
+              contactarnos a través del correo <strong>proyeccion_social@cun.edu.co</strong>
               <br><br>Cordialmente,
               <br>Coordinación Nacional de Proyección Social
             </div>
