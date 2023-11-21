@@ -221,19 +221,19 @@
                                         </div>
                                         <div class="col-md-7">
                                           @php
-                                            $ccSelect = $load->Tipo_documento == 'cédula de ciudadanía' ? 'selected' : '';
-                                            $tiSelect = $load->Tipo_documento == 'tarjeta de identidad' ? 'selected' : '';
-                                            $ceSelect = $load->Tipo_documento == 'cédula de extrangeria' ? 'selected' : '';
-                                            $deSelect = $load->Tipo_documento == 'documento de extrangeria' ? 'selected' : '';
-                                            $paSelect = $load->Tipo_documento == 'pasaporte' ? 'selected' : '';
-                                            $rcSelect = $load->Tipo_documento == 'registro civil' ? 'selected' : '';
+                                            $ccSelect = str::lower($load->Tipo_documento) == 'cédula de ciudadanía' ? 'selected' : '';
+                                            $tiSelect = str::lower($load->Tipo_documento) == 'tarjeta de identidad' ? 'selected' : '';
+                                            $ceSelect = str::lower($load->Tipo_documento) == 'cédula de extrangeria' ? 'selected' : '';
+                                            $deSelect = str::lower($load->Tipo_documento) == 'documento de extrangería' ? 'selected' : '';
+                                            $paSelect = str::lower($load->Tipo_documento) == 'pasaporte' ? 'selected' : '';
+                                            $rcSelect = str::lower($load->Tipo_documento) == 'registro civil' ? 'selected' : '';
                                           @endphp
                                           <select class="form-control select-buscar" id="Tipo_documento" name="Tipo_documento" required>
                                             <option value="" hidden selected>Selecciona tipo de documento</option>
                                             <option value="cédula de ciudadanía" {{ $ccSelect }}>Cédula de ciudadanía</option>
                                             <option value="tarjeta de identidad" {{ $tiSelect }}>Tarjeta de identidad</option>
                                             <option value="cédula de extrangeria" {{ $ceSelect }}>Cédula de extranjería</option>
-                                            <option value="documento de extrangeria" {{ $deSelect }}>Documento de identidad extranjera</option>
+                                            <option value="documento de extrangería" {{ $deSelect }}>Documento de identidad extranjera</option>
                                             <option value="pasaporte" {{ $paSelect }}>Pasaporte</option>
                                             <option value="registro civil" {{ $rcSelect }}>Registro civil</option>
                                           </select>
