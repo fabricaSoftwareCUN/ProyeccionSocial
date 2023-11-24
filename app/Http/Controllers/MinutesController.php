@@ -31,6 +31,21 @@ class MinutesController extends Controller
    */
   public function printMinutes($Acta_cierre)
   {
+    $tipoProducto = DB::table('loads')
+      ->select('Tipo_producto')
+      ->where('Acta_cierre', $Acta_cierre)
+      ->first();
+
+      $tipo_producto = explode(" ", $tipoProducto->Tipo_producto);
+
+      if($tipo_producto[0] == "la"){
+        $textoRealizado = "realizada";
+      }else if($tipo_producto[0] == "el"){
+        $textoRealizado = "realizado";
+      }else{
+        $textoRealizado = "";
+      }
+
     $loads = DB::table('loads')
       ->select('id', 'Nombre_completo_participante', 'Numero_documento')
       ->where('Acta_cierre', $Acta_cierre)
@@ -42,8 +57,8 @@ class MinutesController extends Controller
       ->first();
 
     $Acta_cierre_report = $reports->Acta_cierre;
-    $Tipo_producto_report = $reports->Tipo_producto;
-    $Nombre_producto_report = $reports->Nombre_producto;
+    $Tipo_producto_report = trim($reports->Tipo_producto);
+    $Nombre_producto_report = trim($reports->Nombre_producto);
 
     if ($reports->Fecha_inicial == $reports->Fecha_final) {
       // FORMATEAMOS FECHA UNICA DEL CURSO NUEVO
@@ -51,7 +66,7 @@ class MinutesController extends Controller
       $dateMonth = Carbon::parse($reports->Fecha_inicial)->locale('es');
       $month_i = $dateMonth->monthName;
       $year_i = Carbon::parse($reports->Fecha_inicial)->format('Y');
-      $fecha_realizado = "realizada el " . $day_i . " de " . $month_i . " del " . $year_i;
+      $fecha_realizado = $textoRealizado." el " . $day_i . " de " . $month_i . " del " . $year_i;
     } else {
       // FORMATEAMOS FECHA INICIAL DEL CURSO NUEVO
       $day_i = Carbon::parse($reports->Fecha_inicial)->format('d');
@@ -63,11 +78,11 @@ class MinutesController extends Controller
       $dateMonth = Carbon::parse($reports->Fecha_final)->locale('es');
       $month_f = $dateMonth->monthName;
       $year_f = Carbon::parse($reports->Fecha_final)->format('Y');
-      $fecha_realizado = "realizada del " . $day_i . " de " . $month_i . " del " . $year_i .
+      $fecha_realizado = $textoRealizado." del " . $day_i . " de " . $month_i . " del " . $year_i .
         " al " . $day_f . " de " . $month_f . " del " . $year_f;
     }
 
-    $Ciudad_expedicion_report = $reports->Ciudad_expedición;
+    $Ciudad_expedicion_report = trim($reports->Ciudad_expedición);
     $Duracion_report = $reports->Duración;
 
     // FORMATEAMOS FECHA EXPEDCION DEL ACTA DE CIERRE
