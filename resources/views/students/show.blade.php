@@ -52,9 +52,9 @@
                               <a class="sombra btn btn-success" href="{{ route('printPDF', $item->id) }}" onclick="mostrar()">
                                 <i class="bi bi-file-earmark-pdf"></i>
                               </a>
-                              <a class="sombra btn btn-warning" href="{{ route('printIMG', $item->id) }}">
+                              {{-- <a class="sombra btn btn-warning" href="{{ route('printIMG', $item->id) }}">
                                 <i class="bi bi-linkedin"></i>
-                              </a>
+                              </a> --}}
                             </div>
                           </td>
                         </tr>
