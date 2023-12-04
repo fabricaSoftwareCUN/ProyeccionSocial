@@ -28,7 +28,7 @@ class CreateLoadsTable extends Migration
       $table->string('Tipo_documento');
       $table->string('Numero_documento');
       $table->string('Sexo');
-      $table->string('Telefono');
+      $table->string('Telefono')->nullable();
       $table->string('Email');
       $table->string('Empresa_entidad');
       $table->string('Ciudad_residencia');
