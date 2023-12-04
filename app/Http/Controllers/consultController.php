@@ -51,7 +51,7 @@ class consultController extends Controller
    */
   public function show(Request $request)
   {
-    $documento = $request->documento;
+    $documento = trim($request->documento);
     $studentCertificates = Load::where('Numero_documento', $documento)->get();
     return view('students.show', compact('studentCertificates', 'documento'));
   }
@@ -71,8 +71,10 @@ class consultController extends Controller
 
     if($tipo_producto[0] == "la"){
       $textoRealizado = "Realizada";
-    }else{
+    }else if($tipo_producto[0] == "el"){
       $textoRealizado = "Realizado";
+    }else{
+      $textoRealizado = "";
     }
     // VALIDAMOS QUE EL CERTIFICADO SOLICITADO NO SE HAYA CREADO ANTERIORMENTE
     $cursoSolicitado = $new->Nombre_producto;
@@ -92,11 +94,11 @@ class consultController extends Controller
       $name = $new->Nombre_completo_participante;
       $tipo_documento = $new->Tipo_documento;
       $numero_documento = $new->Numero_documento;
-      $tipo_producto = $new->Tipo_producto;
+      $tipo_producto = trim($new->Tipo_producto);
       $fecha_inicial = $new->Fecha_inicial;
       $fecha_final = $new->Fecha_final;
       $duración = $new->Duración;
-      $ciudad_expedición = $new->Ciudad_expedición;
+      $ciudad_expedición = trim($new->Ciudad_expedición);
       $firma = $new->Firma_aliado;
       $logo = $new->Logo_aliado;
       $fecha_expedicion = $new->created_at->format('Y-m-d');
@@ -168,11 +170,11 @@ class consultController extends Controller
         $nombre_completo_participante = $key->Nombre_completo_participante;
         $tipo_documento = $key->Tipo_documento;
         $numero_documento = $key->Numero_documento;
-        $tipo_producto = $key->Tipo_producto;
+        $tipo_producto = trim($key->Tipo_producto);
         $fecha_inicial = $key->Fecha_inicial;
         $fecha_final = $key->Fecha_final;
         $duración = $key->Duración;
-        $ciudad_expedición = $key->Ciudad_expedición;
+        $ciudad_expedición = trim($key->Ciudad_expedición);
         $firma = $key->Firma_aliado;
         $logo = $key->Logo_aliado;
         $fecha_descarga = $key->Fecha_descarga;

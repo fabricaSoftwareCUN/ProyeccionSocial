@@ -18,7 +18,7 @@ class DownloadController extends Controller
     $texto = trim($request->get('texto'));
     $loads = Download::where('Nombre_completo_participante', 'LIKE', '%' . $texto . '%')
     ->orWhere('Numero_documento', 'LIKE', '%' . $texto . '%')
-      ->orWhere('Nombre_producto', 'LIKE', '%' . $texto . '%')
+    ->orWhere('Nombre_producto', 'LIKE', '%' . $texto . '%')
     ->orderByDesc('id')
     ->paginate(15);
     return view('downloads.index', compact('loadscount', 'texto', 'loads'));
@@ -77,7 +77,14 @@ class DownloadController extends Controller
    */
   public function update(Request $request, Download $download)
   {
-    //
+    // return $request;
+    try {
+      $download->update($request->all());
+    } catch (\Throwable $th) {
+      return redirect()->route('downloads.index')->dangerBanner('Registro no modificado, revisar por que: ' . $th);
+    }
+    return redirect()->route('downloads.index')->banner('Registro actualizado exitosamente.');
+    return "update";
   }
 
   /**
